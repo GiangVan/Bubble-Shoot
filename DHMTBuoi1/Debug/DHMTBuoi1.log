@@ -1,0 +1,27 @@
+﻿  DHMTBuoi1.cpp
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(4,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(5,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(6,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(7,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(1,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(3,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Point.h(1,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Point.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(4,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\GLfloatColor.h(1,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\GLfloatColor.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(5,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(6,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(8,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(13,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(14,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(15,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(16,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(28,9): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(29,9): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(71,17): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(104,17): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(176,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(177,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
+  DHMTBuoi1.vcxproj -> C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\Debug\DHMTBuoi1.exe
