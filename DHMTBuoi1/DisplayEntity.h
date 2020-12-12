@@ -21,17 +21,18 @@ class DisplayEntity {
 	Point currentPoint;
 	Point destinationPoint;
 	GLfloatColor color;
-	void (*modelRenderingFunc)();
+	void (*modelRenderingFunc)() = 0;
 	void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
 	int mode;
 
 
 	void display() {
-		glPushMatrix();
-		glColor3f(color.red, color.green, color.blue);
-		modelRenderingFunc();
+		glLoadIdentity();
  		glTranslatef(currentPoint.x, currentPoint.y, currentPoint.z);
-		glPopMatrix();
+		glColor3f(color.red, color.green, color.blue);
+		if (modelRenderingFunc != 0) {
+			modelRenderingFunc();
+		}
 	}
 
 	void update(DisplayEntity *model) {

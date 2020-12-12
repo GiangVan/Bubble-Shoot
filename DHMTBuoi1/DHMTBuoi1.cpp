@@ -31,7 +31,7 @@ float z = rtd * cos(anpha / 3.14);
 int chieu = 1;
 // chiều 1 tương ứng qua phải
 // -1 là qua trái.
-double camY = 0; // biến vị trí cam theo trục Y
+double camY = 1; // biến vị trí cam theo trục Y
 
 int maxFrame = 25;
 int chuky = 1000 / maxFrame;
@@ -130,9 +130,11 @@ void inputProcess(unsigned char key, int x, int y) {
     case '1':
         // tốc độ sẽ đẩy lên 0.2 mỗi lần ấn 1
         tocdo = tocdo + 0.2;
+        camY = camY + 1;
         break;
     case '2':
         tocdo = tocdo - 0.2;
+        camY = camY - 1;
         break;
     case '3':
         if (tocdo != 0)

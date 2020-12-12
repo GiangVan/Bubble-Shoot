@@ -22,6 +22,6 @@ C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(28,9): w
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(29,9): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(71,17): warning C4018:  '<': signed/unsigned mismatch
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(104,17): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(176,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(177,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(180,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(181,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
   DHMTBuoi1.vcxproj -> C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\Debug\DHMTBuoi1.exe
