@@ -16,20 +16,7 @@ using namespace std;
 #include <math.h>;
 //
 vector<DisplayEntity> displayEntidyList;
-// dùng thư viện math để tính căn bậc 2
 
-double rtd = 3;
-// bán kính của quỹ đạo trái đất
-
-double anpha = 0;
-// góc hiện tại của trái đất so với mặt trời
-
-
-float x = rtd* sin(anpha/3.14);
-float z = rtd * cos(anpha / 3.14);
-// x là vị trí khởi tạo của cục xanh
-int chieu = 1;
-// chiều 1 tương ứng qua phải
 // -1 là qua trái.
 double camY = 1; // biến vị trí cam theo trục Y
 
@@ -71,17 +58,7 @@ void render(void) {
 	for(int i=0; i < displayEntidyList.size(); i++){
 		displayEntidyList[i].display();
 	}
-    // //glRotatef((GLfloat)year, 0.0, 1.0, 0.0); 
 
-
-
-
-
-
-
-
-    // chú ý thay x và z để chỉ định vị trí mới
-    // y luôn  = 0
 
   
     glMatrixMode(GL_MODELVIEW);
@@ -96,7 +73,7 @@ void render(void) {
         sleep(chuky - timeDiff);
     }
 }
-double tocdo = 0;
+
 // tốc độ quay của chái đất
 void update() {
 // mỗi frame, vị trí của trái đất sẽ tăng 1 độ
@@ -106,7 +83,6 @@ void update() {
 	}
 
     glutPostRedisplay();
-
 }
 
 void reshape(int w, int h) {
@@ -127,58 +103,94 @@ double tocdotemp = 0;
 // biến lưu trữ tạm tốc độ hiện tại của trái đất
 void inputProcess(unsigned char key, int x, int y) {
     switch (key) {
-    case '1':
-        // tốc độ sẽ đẩy lên 0.2 mỗi lần ấn 1
-        tocdo = tocdo + 0.2;
-        camY = camY + 1;
-        break;
-    case '2':
-        tocdo = tocdo - 0.2;
-        camY = camY - 1;
-        break;
-    case '3':
-        if (tocdo != 0)
-        {
-            tocdotemp = tocdo;
-            tocdo = 0;
-        }
-        else
-        {
-            tocdo = tocdotemp;
-        }
-        break;
-    default:          break;
+		case 'w':
+			// tốc độ sẽ đẩy lên 0.2 mỗi lần ấn 1
+			camY = camY + 1;
+			break;
+		case 's':
+			camY = camY - 1;
+			break;
+		default:   
+			break;
     }
 }
 
 
 void initDisplayEntidyList() {
+	//------------------------------------------------------
+	// Init Model 1
+	//------------------------------------------------------
 	DisplayEntity a;
 	a.name = "Sun";
+	a.mode = "rotate";
+	a.modelUpdatingFunc = [](DisplayEntity *model) { 
+		model->angle = model->angle + 1;
+		// đủ 360 độ sẽ quay về tính lại là 0
+		if (model->angle > 360)
+		{
+			model->angle = 0;
+		}
+	};
 	a.setColor(1.0, 0.0, 0.0);
-	a.setCurrentPoint(0.0, 0.0, 3.0);
 	a.modelRenderingFunc = []() { 
 		glutWireSphere(2.0, 50, 40); 
 	};
 	displayEntidyList.push_back(a);
 
+	//------------------------------------------------------
+	// Init Model 2
+	//------------------------------------------------------
 	a = DisplayEntity();
 	a.name = "Earth";
 	a.setColor(1.0, 1.0, 1.0);
 	a.modelRenderingFunc = []() { 
 		glutWireSphere(0.5, 100, 80);
 	};
+	a.mode = "translate";
 	a.modelUpdatingFunc = [](DisplayEntity *model) { 
-		anpha= anpha + 10;
+		model->angle = model->angle + 10;
 		// đủ 360 độ sẽ quay về tính lại là 0
-		if (anpha > 360)
+		if (model->angle > 360)
 		{
-			anpha = 0;
+			model->angle = 0;
 		}
 		// theo trục x và z thì côgn thức học cấp
 		// 3 cho biết thế này:
-		model->currentPoint.x = rtd * sin(anpha*3.14/180);
-		model->currentPoint.z = rtd * cos(anpha*3.14/180);
+		model->translatePoint.x = 3 * sin(model->angle*3.14/180);
+		model->translatePoint.z = 3 * cos(model->angle*3.14/180);
+	};
+	displayEntidyList.push_back(a);
+
+	//------------------------------------------------------
+	// Init Model 3
+	//------------------------------------------------------
+	a = DisplayEntity();
+	a.name = "Earth 2";
+	a.setColor(1.0f, 1.0f, 1.0f);
+	a.modelRenderingFunc = []() { 
+		glutWireSphere(0.5, 100, 80);
+	};
+	a.mode = "translate";
+	a.modelUpdatingFunc = [](DisplayEntity *model) { 
+		//change color
+		int maxColor = 100;
+		int minColor = 10;
+		model->setColor(
+			(GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor, 
+			(GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor, 
+			(GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor
+		);
+		//
+		model->angle = model->angle + 20;
+		// đủ 360 độ sẽ quay về tính lại là 0
+		if (model->angle > 360)
+		{
+			model->angle = 0;
+		}
+		// theo trục x và z thì côgn thức học cấp
+		// 3 cho biết thế này:
+		model->translatePoint.y = 3 * sin(model->angle*3.14/180);
+		model->translatePoint.z = 3 * cos(model->angle*3.14/180);
 	};
 	displayEntidyList.push_back(a);
 }

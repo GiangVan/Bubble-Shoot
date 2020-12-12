@@ -11,27 +11,38 @@ class DisplayEntity {
 //--------------------------------------------------------------------------
 	public:             
 //--------------------------------------------------------------------------
-	DisplayEntity(){
-		init();
-	}
+	DisplayEntity(){ }
 
 
 	std::string name;
-	Point initPoint;   
-	Point currentPoint;
-	Point destinationPoint;
+	Point translatePoint = Point();
+	GLfloat angle = 0.0f;
 	GLfloatColor color;
 	void (*modelRenderingFunc)() = 0;
 	void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
-	int mode;
+	std::string mode = "none";
 
 
 	void display() {
-		glLoadIdentity();
- 		glTranslatef(currentPoint.x, currentPoint.y, currentPoint.z);
 		glColor3f(color.red, color.green, color.blue);
+
+		if(mode != "none"){
+			glPushMatrix();
+		}
+
+		if (mode == "translate") {
+ 			glTranslatef(translatePoint.x, translatePoint.y, translatePoint.z);
+		}
+		if (mode == "rotate") {
+ 			glRotatef(angle, 0.0, 1.0, 0.0); 
+		}
+
 		if (modelRenderingFunc != 0) {
 			modelRenderingFunc();
+		}
+
+		if(mode != "none"){
+			glPopMatrix();
 		}
 	}
 
@@ -47,33 +58,9 @@ class DisplayEntity {
 		color.blue = blue;
 	}
 
-	void setCurrentPoint(GLfloat x, GLfloat y, GLfloat z){
-		currentPoint.x = x;
-		currentPoint.y = y;
-		currentPoint.z = z;
-	}
-
-	void setInitPoint(GLfloat x, GLfloat y, GLfloat z){
-		initPoint.x = x;
-		initPoint.y = y;
-		initPoint.z = z;
-	}
-
-	void setDestinationPoint(GLfloat x, GLfloat y, GLfloat z){
-		destinationPoint.x = x;
-		destinationPoint.y = y;
-		destinationPoint.z = z;
-	}
-
-//--------------------------------------------------------------------------
-	private:
-//--------------------------------------------------------------------------
-	void init(){
-		GLfloat initPointValue = 0.0;
-		initPoint.x = initPoint.y = initPoint.z = initPointValue;
-		currentPoint.x = currentPoint.y = currentPoint.z = initPointValue;
-		destinationPoint.x = destinationPoint.y = destinationPoint.z = initPointValue;
-
-		mode = 0;
+	void setTranslatePoint(GLfloat x, GLfloat y, GLfloat z){
+		translatePoint.x = x;
+		translatePoint.y = y;
+		translatePoint.z = z;
 	}
 };
