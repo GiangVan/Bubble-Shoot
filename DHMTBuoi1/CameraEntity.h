@@ -53,21 +53,16 @@ class CameraEntity {
     }
 
     void keyboardHadler(unsigned char key, int x, int y) {
-        GLfloat speed = 1.5f;
+        GLfloat speed = 0.5f;
 
         switch (key) {
             case 'w':
-                eyePoint.y += speed;
+                eyePoint.z -= speed;
                 break;
             case 's':
-                eyePoint.y -= speed;
+                eyePoint.z += speed;
                 break;
-            case 'a':
-                eyePoint.x -= speed;
-                break;
-            case 'd':
-                eyePoint.x += speed;
-                break;
+       
             case '8':
                 upPoint.y += speed * 10;
                 break;

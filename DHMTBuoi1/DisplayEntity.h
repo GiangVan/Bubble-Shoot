@@ -9,6 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 
 #include <string>;
+#include <vector>;
 #include "Point.h";
 #include "GLfloatColor.h";
 #include "Dependencies/glew/glew.h";
@@ -30,6 +31,7 @@ class DisplayEntity {
     void (*modelRenderingFunc)(DisplayEntity model) = 0;
     void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
     bool isDestroy = false;
+    std::vector<DisplayEntity*> neighbors;
 
     
     void display(DisplayEntity model) {

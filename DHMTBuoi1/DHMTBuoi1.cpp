@@ -2,7 +2,7 @@
 //
 #include <stdlib.h>;
 #include <stdio.h>;
-#include <vector>;
+#include <list>;
 #include <math.h>;
 
 #include "Dependencies/glew/glew.h";
@@ -16,7 +16,7 @@
 using namespace std;
 
 //Init variables
-vector<DisplayEntity> displayEntidyList;
+list<DisplayEntity*> displayEntidyList;
 CameraEntity cameraEntity;
 
 
@@ -27,8 +27,8 @@ void render(void) {
     //--------------------------------------------------------------------------//
     // Hiển thị các models                                                      //
     //--------------------------------------------------------------------------//
-    for(int i=0; i < displayEntidyList.size(); i++){                            //
-        displayEntidyList[i].display(displayEntidyList[i]);                     //
+    for(DisplayEntity *item : displayEntidyList){                               //
+        item->display(*item);                                                   //
     }                                                                           //
     //--------------------------------------------------------------------------//
   
@@ -52,8 +52,8 @@ void update() {
     //--------------------------------------------------------------------------//
     // Thuộc tính của các models được update                                    //
     //--------------------------------------------------------------------------//
-    for(int i=0; i < displayEntidyList.size(); i++){                            //
-        displayEntidyList[i].update(&displayEntidyList[i]);                     //
+    for(DisplayEntity *item : displayEntidyList){                               //
+        item->update(item);                                                     //
     }                                                                           //
     //--------------------------------------------------------------------------//
 
