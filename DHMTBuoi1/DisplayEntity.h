@@ -1,4 +1,13 @@
-#pragma once
+﻿#pragma once
+///////////////////////////////////////////////////////////////////////////////////////
+//                                                                                   //
+//	    Class này sử dụng để variable hóa các models                                 //
+//      ------------------------------------------------                             //
+//	    1.  Gọi hàm display() mỗi khi tiến hành render để model được hiển thị        //
+//	    2.  Gọi hàm update() sau khi render để cập nhập các thuộc tính cho model     //
+//                                                                                   //
+///////////////////////////////////////////////////////////////////////////////////////
+
 #include <string>;
 #include "Point.h";
 #include "GLfloatColor.h";
@@ -22,7 +31,7 @@ class DisplayEntity {
     void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
     bool isDestroy = false;
 
-
+    
     void display(DisplayEntity model) {
         if (!isDestroy) {
             glColor3f(color.red, color.green, color.blue);

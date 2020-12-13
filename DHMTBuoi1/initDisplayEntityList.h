@@ -1,4 +1,15 @@
 ﻿#pragma once
+////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                            //
+//	    Function này sử dụng để khai báo các models sẽ sử dụng lúc chương trình khởi tạo      //                             //
+//      ------------------------------------------------                                      //
+//	    1.  Khai báo những hiển thị cho model tại con trỏ hàm modelRenderingFunc (Hàm         //       
+//          sẽ được gọi mỗi khi render)                                                       //
+//	    2.  Khai báo update thuộc tính của model tại con trỏ hàm modelUpdatingFunc (Hàm       //
+//          sẽ được gọi sau khi render)                                                       //
+//                                                                                            //
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "DisplayEntity.h";
 #include <vector>;
 
@@ -6,7 +17,7 @@
 std::vector<DisplayEntity> initDisplayEntidyList() {
     std::vector<DisplayEntity> displayEntidyList;
     //------------------------------------------------------
-    // Init Model 1
+    // Model 1
     //------------------------------------------------------
     DisplayEntity a;
     a.name = "Sun";
@@ -28,7 +39,7 @@ std::vector<DisplayEntity> initDisplayEntidyList() {
     displayEntidyList.push_back(a);
 
     //------------------------------------------------------
-    // Init Model 2
+    // Model 2
     //------------------------------------------------------
     a = DisplayEntity();
     a.name = "Earth";
@@ -53,7 +64,7 @@ std::vector<DisplayEntity> initDisplayEntidyList() {
     displayEntidyList.push_back(a);
 
     //------------------------------------------------------
-    // Init Model 3
+    // Model 3
     //------------------------------------------------------
     a = DisplayEntity();
     a.name = "Earth 2";
@@ -85,6 +96,7 @@ std::vector<DisplayEntity> initDisplayEntidyList() {
         model->translatePoint.z = 3 * cos(model->angle*3.14/180);
     };
     displayEntidyList.push_back(a);
+
 
     return displayEntidyList;
 }

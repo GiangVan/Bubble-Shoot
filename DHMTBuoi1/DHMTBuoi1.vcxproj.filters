@@ -38,5 +38,8 @@
     <ClInclude Include="initDisplayEntityList.h">
       <Filter>Source Files\Func</Filter>
     </ClInclude>
+    <ClInclude Include="CameraEntity.h">
+      <Filter>Source Files\Library</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

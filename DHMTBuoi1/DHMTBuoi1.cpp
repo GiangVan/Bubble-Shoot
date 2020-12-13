@@ -1,25 +1,23 @@
 ﻿// DHMTBuoi1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
-#include "Dependencies/glew/glew.h";
-#include "Dependencies/freeglut/freeglut.h";
-#include <stdio.h>;
-#include "DisplayEntity.h";
-#include "initDisplayEntityList.h";
-#include <vector>;
-
-
-using namespace std;
-
 #include <sys/timeb.h>;
 #include <sys/utime.h>;
 #include <stdlib.h>;
+#include <stdio.h>;
+#include <vector>;
 #include <math.h>;
-//
+
+#include "Dependencies/glew/glew.h";
+#include "Dependencies/freeglut/freeglut.h";
+#include "DisplayEntity.h";
+#include "initDisplayEntityList.h";
+#include "CameraEntity.h";
+
+using namespace std;
+
+//Init variables
 vector<DisplayEntity> displayEntidyList;
-
-
-double camY = 1; // biến vị trí cam theo trục Y
+CameraEntity cameraEntity;
 
 int maxFrame = 25;
 int chuky = 1000 / maxFrame;
@@ -55,16 +53,19 @@ void render(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     //--------------------------------------------------------------------------//
-    // Hiển thị các models tại đây        //
+    // Hiển thị các models                                                      //
     //--------------------------------------------------------------------------//
-    for(int i=0; i < displayEntidyList.size(); i++){        //
-        displayEntidyList[i].display(displayEntidyList[i]);    //
-    }                //
+    for(int i=0; i < displayEntidyList.size(); i++){                            //
+        displayEntidyList[i].display(displayEntidyList[i]);                     //
+    }                                                                           //
     //--------------------------------------------------------------------------//
   
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    gluLookAt(5, camY, 0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+    //--------------------------------------------------------------------------//
+    // Update hiển thị camera                                                   //
+    //--------------------------------------------------------------------------//
+    cameraEntity.display();                                                     //
+    //--------------------------------------------------------------------------//
 
     glutSwapBuffers();
 
@@ -77,13 +78,12 @@ void render(void) {
 
 void update() {
     //--------------------------------------------------------------------------//
-    // Thuộc tính của các models được update tại đây        //
+    // Thuộc tính của các models được update                                    //
     //--------------------------------------------------------------------------//
-    for(int i=0; i < displayEntidyList.size(); i++){        //
-        displayEntidyList[i].update(&displayEntidyList[i]);    //
-    }                //
+    for(int i=0; i < displayEntidyList.size(); i++){                            //
+        displayEntidyList[i].update(&displayEntidyList[i]);                     //
+    }                                                                           //
     //--------------------------------------------------------------------------//
-
 
     glutPostRedisplay();
 }
@@ -100,22 +100,17 @@ void reshape(int w, int h) {
 }
 
 void inputProcess(unsigned char key, int x, int y) {
-    switch (key) {
-        case 'w':
-            camY = camY + 1;
-            break;
-        case 's':
-            camY = camY - 1;
-            break;
-        default:   
-            break;
-    }
+    //--------------------------------------------------------------------------//
+    // Handle move camera follow keybord                                        //
+    //--------------------------------------------------------------------------//
+    cameraEntity.keyboardHadler(key, x, y);                                     //
+    //--------------------------------------------------------------------------//
 }
 
 int main(int argc, char** argv)
 {
     //--------------------------------------------------------------------------//
-    // Thêm các models lúc khởi tạo tại đây                                     //
+    // Thêm các models lúc khởi tạo                                             //
     //--------------------------------------------------------------------------//
     displayEntidyList = initDisplayEntidyList();                                //
     //--------------------------------------------------------------------------//
