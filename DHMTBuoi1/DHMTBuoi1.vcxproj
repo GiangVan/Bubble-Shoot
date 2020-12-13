@@ -148,6 +148,7 @@
     <ClInclude Include="DisplayEntity.h" />
     <ClInclude Include="getMilliCount.h" />
     <ClInclude Include="GLfloatColor.h" />
+    <ClInclude Include="handleFrame.h" />
     <ClInclude Include="initDisplayEntityList.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="sleep.h" />

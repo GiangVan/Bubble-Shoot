@@ -47,5 +47,8 @@
     <ClInclude Include="getMilliCount.h">
       <Filter>Source Files\Func</Filter>
     </ClInclude>
+    <ClInclude Include="handleFrame.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -79,6 +79,22 @@ void inputProcess(unsigned char key, int x, int y) {
     //--------------------------------------------------------------------------//
 }
 
+void mouseClickProcess(int button, int state, int x, int y) {
+    //--------------------------------------------------------------------------//
+    // Handle move camera follow mouse                                          //
+    //--------------------------------------------------------------------------//
+    cameraEntity.mouseClickHandler(button, state, x, y);                        //
+    //--------------------------------------------------------------------------//
+}
+
+void mouseMoveProcess(int x, int y) {
+    //--------------------------------------------------------------------------//
+    // Handle move camera follow mouse                                          //
+    //--------------------------------------------------------------------------//
+    cameraEntity.mouseMoveHandler(x, y);                                        //
+    //--------------------------------------------------------------------------//
+}
+
 void init(void)
 {
     glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -104,6 +120,8 @@ int main(int argc, char** argv)
     glutDisplayFunc(render);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(inputProcess);
+    glutMouseFunc(mouseClickProcess);
+    glutMotionFunc(mouseMoveProcess);
     glutIdleFunc(update);
     glutMainLoop();
     return 0;
