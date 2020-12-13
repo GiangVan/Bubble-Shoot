@@ -32,5 +32,8 @@
     <ClInclude Include="DisplayEntity.h">
       <Filter>Source Files\Library</Filter>
     </ClInclude>
+    <ClInclude Include="initDisplayEntityList.h">
+      <Filter>Source Files\Library</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

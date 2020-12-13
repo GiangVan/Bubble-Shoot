@@ -6,22 +6,117 @@ C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(7,10): w
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(1,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(3,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Point.h(1,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Point.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Point.h(3,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(4,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\GLfloatColor.h(1,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\GLfloatColor.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\GLfloatColor.h(3,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(5,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(6,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(8,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(13,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(1,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(3,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(4,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(5,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(6,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9,21): error C2011:  'DisplayEntity': 'class' type redefinition
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(3,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(11,17): error C2079:  'a' uses undefined class 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(14,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(16,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(18,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(22,49): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(23,3): error C2065:  'glPushMatrix': undeclared identifier
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(24,3): error C2065:  'glRotatef': undeclared identifier
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): error C2664:  'void std::vector<DisplayEntity,std::allocator<_Ty>>::push_back(_Ty &&)': cannot convert argument 1 from 'int' to 'const _Ty &'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): error C2664:         with
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): error C2664:         [
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): error C2664:             _Ty=DisplayEntity
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): error C2664:         ]
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): message :  Reason: cannot convert from 'int' to 'const _Ty'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): message :         with
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): message :         [
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): message :             _Ty=DisplayEntity
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): message :         ]
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(28,31): message :  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9,7): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(33,19): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(36,49): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(37,3): error C2065:  'glPushMatrix': undeclared identifier
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(38,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(38,3): error C2065:  'glTranslatef': undeclared identifier
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(43,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(45,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(47,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(51,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(52,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): error C2664:  'void std::vector<DisplayEntity,std::allocator<_Ty>>::push_back(_Ty &&)': cannot convert argument 1 from 'int' to 'const _Ty &'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): error C2664:         with
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): error C2664:         [
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): error C2664:             _Ty=DisplayEntity
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): error C2664:         ]
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): message :  Reason: cannot convert from 'int' to 'const _Ty'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): message :         with
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): message :         [
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): message :             _Ty=DisplayEntity
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): message :         ]
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,31): message :  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9,7): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(59,19): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(62,49): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(63,3): error C2065:  'glPushMatrix': undeclared identifier
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(64,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(64,3): error C2065:  'glTranslatef': undeclared identifier
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(72,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(78,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(80,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(82,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(86,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(87,1): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): error C2664:  'void std::vector<DisplayEntity,std::allocator<_Ty>>::push_back(_Ty &&)': cannot convert argument 1 from 'int' to 'const _Ty &'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): error C2664:         with
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): error C2664:         [
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): error C2664:             _Ty=DisplayEntity
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): error C2664:         ]
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): message :  Reason: cannot convert from 'int' to 'const _Ty'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): message :         with
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): message :         [
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): message :             _Ty=DisplayEntity
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): message :         ]
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,31): message :  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9,7): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(9,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(14,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(15,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(16,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(58,17): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(81,17): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(159,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(160,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(192,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(193,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-  DHMTBuoi1.vcxproj -> C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\Debug\DHMTBuoi1.exe
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(17,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(57,17): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(58,23): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(76,17): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(77,23): error C2027:  use of undefined type 'DisplayEntity'
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(9): message :  see declaration of 'DisplayEntity'

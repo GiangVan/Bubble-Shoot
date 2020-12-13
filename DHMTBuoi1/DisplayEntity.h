@@ -1,5 +1,4 @@
 #include <string>;
-#include <list>;
 #include "Point.h";
 #include "GLfloatColor.h";
 #include "Dependencies/glew/glew.h";
@@ -17,32 +16,19 @@ class DisplayEntity {
 	std::string name;
 	Point translatePoint = Point();
 	GLfloat angle = 0.0f;
-	GLfloatColor color;
-	void (*modelRenderingFunc)() = 0;
+	GLfloatColor color = GLfloatColor();
+	void (*modelRenderingFunc)(DisplayEntity model) = 0;
 	void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
-	std::string mode = "none";
+	bool isDestroy = false;
 
 
-	void display() {
-		glColor3f(color.red, color.green, color.blue);
+	void display(DisplayEntity model) {
+		if (!isDestroy) {
+			glColor3f(color.red, color.green, color.blue);
 
-		if(mode != "none"){
-			glPushMatrix();
-		}
-
-		if (mode == "translate") {
- 			glTranslatef(translatePoint.x, translatePoint.y, translatePoint.z);
-		}
-		if (mode == "rotate") {
- 			glRotatef(angle, 0.0, 1.0, 0.0); 
-		}
-
-		if (modelRenderingFunc != 0) {
-			modelRenderingFunc();
-		}
-
-		if(mode != "none"){
-			glPopMatrix();
+			if (modelRenderingFunc != 0) {
+				modelRenderingFunc(model);
+			}
 		}
 	}
 

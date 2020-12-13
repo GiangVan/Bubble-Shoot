@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="DisplayEntity.h" />
     <ClInclude Include="GLfloatColor.h" />
+    <ClInclude Include="initDisplayEntityList.h" />
     <ClInclude Include="Point.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
