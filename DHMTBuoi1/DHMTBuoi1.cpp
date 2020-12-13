@@ -1,7 +1,5 @@
 ﻿// DHMTBuoi1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include <sys/timeb.h>;
-#include <sys/utime.h>;
 #include <stdlib.h>;
 #include <stdio.h>;
 #include <vector>;
@@ -12,6 +10,8 @@
 #include "DisplayEntity.h";
 #include "initDisplayEntityList.h";
 #include "CameraEntity.h";
+#include "getMilliCount.h";
+#include "handleFrame.h";
 
 using namespace std;
 
@@ -19,34 +19,6 @@ using namespace std;
 vector<DisplayEntity> displayEntidyList;
 CameraEntity cameraEntity;
 
-int maxFrame = 25;
-int chuky = 1000 / maxFrame;
-// code nào mà ko có khúc này
-// mặc định là lụm trên mạng
-// khỏi suy nghĩ, rớt môn
-int getMilliCount() {
-    timeb tb;
-    ftime(&tb);
-    int nCount = tb.millitm +(tb.time & 0xfffff)*1000;
-    return nCount;
-}
-// lấy thời điểm hiện tại theo ms
-void sleep(int sleeptime)
-{
-    int count = 0;
-    int beginsleep = getMilliCount();
-    while (getMilliCount() - beginsleep < sleeptime)
-    {
-        count++;
-    }
-}
-
-void init(void)
-{
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glEnable(GL_DEPTH_TEST);
-    glShadeModel(GL_FLAT);
-}
 
 void render(void) {
     int beginframe = getMilliCount();
@@ -69,11 +41,11 @@ void render(void) {
 
     glutSwapBuffers();
 
-    int timeDiff = getMilliCount() - beginframe;
-    if (timeDiff < chuky)
-    {
-        sleep(chuky - timeDiff);
-    }
+    //--------------------------------------------------------------------------//
+    // Xử lý frame                                                              //
+    //--------------------------------------------------------------------------//
+    handleFrame(beginframe);
+    //--------------------------------------------------------------------------//
 }
 
 void update() {
@@ -107,6 +79,13 @@ void inputProcess(unsigned char key, int x, int y) {
     //--------------------------------------------------------------------------//
 }
 
+void init(void)
+{
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glEnable(GL_DEPTH_TEST);
+    glShadeModel(GL_FLAT);
+}
+
 int main(int argc, char** argv)
 {
     //--------------------------------------------------------------------------//
@@ -115,7 +94,6 @@ int main(int argc, char** argv)
     displayEntidyList = initDisplayEntidyList();                                //
     //--------------------------------------------------------------------------//
     
-
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(800, 800);

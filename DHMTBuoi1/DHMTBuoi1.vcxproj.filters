@@ -41,5 +41,11 @@
     <ClInclude Include="CameraEntity.h">
       <Filter>Source Files\Library</Filter>
     </ClInclude>
+    <ClInclude Include="sleep.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="getMilliCount.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
