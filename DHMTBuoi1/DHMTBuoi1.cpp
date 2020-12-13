@@ -18,7 +18,7 @@ using namespace std;
 //
 vector<DisplayEntity> displayEntidyList;
 
-// -1 là qua trái.
+
 double camY = 1; // biến vị trí cam theo trục Y
 
 int maxFrame = 25;
@@ -42,7 +42,7 @@ void sleep(int sleeptime)
         count++;
     }
 }
-// code trên mạng ko có hàm sleep này đâu, yên tâm mà copy
+
 void init(void)
 {
     glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -54,9 +54,13 @@ void render(void) {
     int beginframe = getMilliCount();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	for(int i=0; i < displayEntidyList.size(); i++){
-		displayEntidyList[i].display(displayEntidyList[i]);
-	}
+	//--------------------------------------------------------------------------//
+	// Hiển thị các models tại đây												//
+	//--------------------------------------------------------------------------//
+	for(int i=0; i < displayEntidyList.size(); i++){							//
+		displayEntidyList[i].display(displayEntidyList[i]);						//
+	}																			//
+	//--------------------------------------------------------------------------//
   
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -72,9 +76,14 @@ void render(void) {
 }
 
 void update() {
-	for(int i=0; i < displayEntidyList.size(); i++){
-		displayEntidyList[i].update(&displayEntidyList[i]);
-	}
+	//--------------------------------------------------------------------------//
+	// Thuộc tính của các models được update tại đây							//
+	//--------------------------------------------------------------------------//
+	for(int i=0; i < displayEntidyList.size(); i++){							//
+		displayEntidyList[i].update(&displayEntidyList[i]);						//
+	}																			//
+	//--------------------------------------------------------------------------//
+
 
     glutPostRedisplay();
 }
@@ -105,7 +114,12 @@ void inputProcess(unsigned char key, int x, int y) {
 
 int main(int argc, char** argv)
 {
-	displayEntidyList = initDisplayEntidyList();
+	//--------------------------------------------------------------------------//
+	// Thêm các models lúc khởi tạo tại đây										//
+	//--------------------------------------------------------------------------//
+	displayEntidyList = initDisplayEntidyList();								//
+	//--------------------------------------------------------------------------//
+	
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);

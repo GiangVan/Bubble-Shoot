@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Library">
       <UniqueIdentifier>{ce64dd04-c791-415a-8110-168f05b10429}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Func">
+      <UniqueIdentifier>{f504ef00-41cd-4e2f-96dd-d538b55bd126}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DHMTBuoi1.cpp">
@@ -33,7 +36,7 @@
       <Filter>Source Files\Library</Filter>
     </ClInclude>
     <ClInclude Include="initDisplayEntityList.h">
-      <Filter>Source Files\Library</Filter>
+      <Filter>Source Files\Func</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -15,10 +15,10 @@ C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(6,10):
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(8,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(2,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(3,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(50,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(51,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(52,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(86,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(87,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(84,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(85,31): warning C4244:  '=': conversion from 'double' to 'GLfloat', possible loss of data
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(9,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(14,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(15,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline

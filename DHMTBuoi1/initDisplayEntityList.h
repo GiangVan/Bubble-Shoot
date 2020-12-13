@@ -32,7 +32,6 @@ std::vector<DisplayEntity> initDisplayEntidyList() {
 	//------------------------------------------------------
 	a = DisplayEntity();
 	a.name = "Earth";
-	a.setColor(1.0, 1.0, 1.0);
 	a.modelRenderingFunc = [](DisplayEntity model) { 
 		glPushMatrix();
 		glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
@@ -58,7 +57,6 @@ std::vector<DisplayEntity> initDisplayEntidyList() {
 	//------------------------------------------------------
 	a = DisplayEntity();
 	a.name = "Earth 2";
-	a.setColor(1.0f, 1.0f, 1.0f);
 	a.modelRenderingFunc = [](DisplayEntity model) { 
 		glPushMatrix();
 		glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
