@@ -7,47 +7,47 @@
 
 
 class DisplayEntity {      
-	
+    
 //--------------------------------------------------------------------------
-	public:             
+    public:             
 //--------------------------------------------------------------------------
-	DisplayEntity(){ }
+    DisplayEntity(){ }
 
 
-	std::string name;
-	Point translatePoint = Point();
-	GLfloat angle = 0.0f;
-	GLfloatColor color = GLfloatColor();
-	void (*modelRenderingFunc)(DisplayEntity model) = 0;
-	void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
-	bool isDestroy = false;
+    std::string name;
+    Point translatePoint = Point();
+    GLfloat angle = 0.0f;
+    GLfloatColor color = GLfloatColor();
+    void (*modelRenderingFunc)(DisplayEntity model) = 0;
+    void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
+    bool isDestroy = false;
 
 
-	void display(DisplayEntity model) {
-		if (!isDestroy) {
-			glColor3f(color.red, color.green, color.blue);
+    void display(DisplayEntity model) {
+        if (!isDestroy) {
+            glColor3f(color.red, color.green, color.blue);
 
-			if (modelRenderingFunc != 0) {
-				modelRenderingFunc(model);
-			}
-		}
-	}
+            if (modelRenderingFunc != 0) {
+                modelRenderingFunc(model);
+            }
+        }
+    }
 
-	void update(DisplayEntity *model) {
-		if (modelUpdatingFunc != 0) {
-			modelUpdatingFunc(model);
-		}
-	}
+    void update(DisplayEntity *model) {
+        if (modelUpdatingFunc != 0) {
+            modelUpdatingFunc(model);
+        }
+    }
 
-	void setColor(GLfloat red, GLfloat green, GLfloat blue){
-		color.red = red;
-		color.green = green;
-		color.blue = blue;
-	}
+    void setColor(GLfloat red, GLfloat green, GLfloat blue){
+        color.red = red;
+        color.green = green;
+        color.blue = blue;
+    }
 
-	void setTranslatePoint(GLfloat x, GLfloat y, GLfloat z){
-		translatePoint.x = x;
-		translatePoint.y = y;
-		translatePoint.z = z;
-	}
+    void setTranslatePoint(GLfloat x, GLfloat y, GLfloat z){
+        translatePoint.x = x;
+        translatePoint.y = y;
+        translatePoint.z = z;
+    }
 };

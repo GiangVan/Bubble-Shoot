@@ -54,13 +54,13 @@ void render(void) {
     int beginframe = getMilliCount();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//--------------------------------------------------------------------------//
-	// Hiển thị các models tại đây												//
-	//--------------------------------------------------------------------------//
-	for(int i=0; i < displayEntidyList.size(); i++){							//
-		displayEntidyList[i].display(displayEntidyList[i]);						//
-	}																			//
-	//--------------------------------------------------------------------------//
+    //--------------------------------------------------------------------------//
+    // Hiển thị các models tại đây        //
+    //--------------------------------------------------------------------------//
+    for(int i=0; i < displayEntidyList.size(); i++){        //
+        displayEntidyList[i].display(displayEntidyList[i]);    //
+    }                //
+    //--------------------------------------------------------------------------//
   
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -76,13 +76,13 @@ void render(void) {
 }
 
 void update() {
-	//--------------------------------------------------------------------------//
-	// Thuộc tính của các models được update tại đây							//
-	//--------------------------------------------------------------------------//
-	for(int i=0; i < displayEntidyList.size(); i++){							//
-		displayEntidyList[i].update(&displayEntidyList[i]);						//
-	}																			//
-	//--------------------------------------------------------------------------//
+    //--------------------------------------------------------------------------//
+    // Thuộc tính của các models được update tại đây        //
+    //--------------------------------------------------------------------------//
+    for(int i=0; i < displayEntidyList.size(); i++){        //
+        displayEntidyList[i].update(&displayEntidyList[i]);    //
+    }                //
+    //--------------------------------------------------------------------------//
 
 
     glutPostRedisplay();
@@ -101,25 +101,25 @@ void reshape(int w, int h) {
 
 void inputProcess(unsigned char key, int x, int y) {
     switch (key) {
-		case 'w':
-			camY = camY + 1;
-			break;
-		case 's':
-			camY = camY - 1;
-			break;
-		default:   
-			break;
+        case 'w':
+            camY = camY + 1;
+            break;
+        case 's':
+            camY = camY - 1;
+            break;
+        default:   
+            break;
     }
 }
 
 int main(int argc, char** argv)
 {
-	//--------------------------------------------------------------------------//
-	// Thêm các models lúc khởi tạo tại đây										//
-	//--------------------------------------------------------------------------//
-	displayEntidyList = initDisplayEntidyList();								//
-	//--------------------------------------------------------------------------//
-	
+    //--------------------------------------------------------------------------//
+    // Thêm các models lúc khởi tạo tại đây                                     //
+    //--------------------------------------------------------------------------//
+    displayEntidyList = initDisplayEntidyList();                                //
+    //--------------------------------------------------------------------------//
+    
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);

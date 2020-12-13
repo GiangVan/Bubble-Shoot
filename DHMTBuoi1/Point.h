@@ -6,13 +6,13 @@
 class Point {
 
 //--------------------------------------------------------------------------
-	public:
+    public:
 //--------------------------------------------------------------------------
-	GLfloat x, y, z;
+    GLfloat x, y, z;
 
-	Point(GLfloat _x = 0.0f, GLfloat _y = 0.0f, GLfloat _z = 0.0f) {
-		x = _x;
-		y = _y;
-		z = _z;
-	}
+    Point(GLfloat _x = 0.0f, GLfloat _y = 0.0f, GLfloat _z = 0.0f) {
+        x = _x;
+        y = _y;
+        z = _z;
+    }
 };
