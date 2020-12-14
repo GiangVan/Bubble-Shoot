@@ -15,4 +15,12 @@ class GLfloatColor {
         green = _green;
         blue = _blue;
     }
+
+    static GLfloatColor getRandomColor(int minColor = 1, int maxColor = 100) {
+        return GLfloatColor(
+            (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor, 
+            (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor, 
+            (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor
+        );
+    }
 };

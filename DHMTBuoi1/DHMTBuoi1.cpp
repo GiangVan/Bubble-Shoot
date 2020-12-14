@@ -11,6 +11,7 @@
 #include "CameraEntity.h";
 #include "getMilliCount.h";
 #include "handleFrame.h";
+#include "GLfloatColor.h";
 
 using namespace std;
 
@@ -23,39 +24,59 @@ void render(void) {
     int beginframe = getMilliCount();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    //--------------------------------------------------------------------------//
-    // Hiển thị các models                                                      //
-    //--------------------------------------------------------------------------//
-    for(DisplayEntity item : displayEntidyList){                               //
-        item.display(item);                                                   //
-    }                                                                           //
-    //--------------------------------------------------------------------------//
+    // Hiển thị các models                                                     
+    for(DisplayEntity item : displayEntidyList){                               
+        item.display(item);                                                   
+    }                                                                           
   
     glMatrixMode(GL_MODELVIEW);
-    //--------------------------------------------------------------------------//
-    // Update hiển thị camera                                                   //
-    //--------------------------------------------------------------------------//
-    cameraEntity.display();                                                     //
-    //--------------------------------------------------------------------------//
+    // Update hiển thị camera                                                   
+    cameraEntity.display();                                                    
 
     glutSwapBuffers();
 
-    //--------------------------------------------------------------------------//
-    // Xử lý frame                                                              //
-    //--------------------------------------------------------------------------//
-    handleFrame(beginframe);                                                    //
-    //--------------------------------------------------------------------------//
+    // Xử lý frame                                                              
+    handleFrame(beginframe);                                                    
+}
+
+void checkCollision(list<DisplayEntity> *entities, string type) {
+    // init variables
+    GLfloat range = 1.0f;
+    GLfloat distance;
+    list<DisplayEntity*> checkedEntities;
+    for(DisplayEntity &item : *entities){    
+        if (item.type == type) {
+            checkedEntities.push_back(&item);
+        }
+    } 
+    // do check
+    for(DisplayEntity *item : checkedEntities){    
+        for(DisplayEntity *sub_item : checkedEntities){    
+            if (item != sub_item) {
+                distance = sqrt(
+                    pow(item->translatePoint.x - sub_item->translatePoint.x, 2) +
+                    pow(item->translatePoint.y - sub_item->translatePoint.y, 2) +
+                    pow(item->translatePoint.z - sub_item->translatePoint.z, 2)
+                );
+
+                if (distance < range) {
+                    item->color = GLfloatColor::getRandomColor();
+                    sub_item->color = GLfloatColor::getRandomColor();
+                }
+            }
+        } 
+    } 
 }
 
 void update() {
-    //--------------------------------------------------------------------------//
-    // Thuộc tính của các models được update                                    //
-    //--------------------------------------------------------------------------//
-    for(DisplayEntity &item : displayEntidyList){                               //
+    // Thuộc tính của các models được update                                    
+    for(DisplayEntity &item : displayEntidyList){                               
         DisplayEntity* ptr = &item;
-        ptr->update(&item);                                                     //
-    }                                                                           //
-    //--------------------------------------------------------------------------//
+        ptr->update(&item);                                                     
+    } 
+
+    // Kiểm tra va chạm
+    checkCollision(&displayEntidyList, "collision_check");
 
     glutPostRedisplay();
 }
@@ -72,27 +93,18 @@ void reshape(int w, int h) {
 }
 
 void inputProcess(unsigned char key, int x, int y) {
-    //--------------------------------------------------------------------------//
-    // Handle move camera follow keybord                                        //
-    //--------------------------------------------------------------------------//
-    cameraEntity.keyboardHadler(key, x, y);                                     //
-    //--------------------------------------------------------------------------//
+    // Handle move camera follow keybord                                        
+    cameraEntity.keyboardHadler(key, x, y);                                     
 }
 
 void mouseClickProcess(int button, int state, int x, int y) {
-    //--------------------------------------------------------------------------//
-    // Handle move camera follow mouse                                          //
-    //--------------------------------------------------------------------------//
-    cameraEntity.mouseClickHandler(button, state, x, y);                        //
-    //--------------------------------------------------------------------------//
+    // Handle move camera follow mouse                                          
+    cameraEntity.mouseClickHandler(button, state, x, y);                        
 }
 
 void mouseMoveProcess(int x, int y) {
-    //--------------------------------------------------------------------------//
-    // Handle move camera follow mouse                                          //
-    //--------------------------------------------------------------------------//
-    cameraEntity.mouseMoveHandler(x, y);                                        //
-    //--------------------------------------------------------------------------//
+    // Handle move camera follow mouse                                          
+    cameraEntity.mouseMoveHandler(x, y);                                        
 }
 
 void init(void)
@@ -104,11 +116,8 @@ void init(void)
 
 int main(int argc, char** argv)
 {
-    //--------------------------------------------------------------------------//
-    // Thêm các models lúc khởi tạo                                             //
-    //--------------------------------------------------------------------------//
-    displayEntidyList = initDisplayEntidyList();                                //
-    //--------------------------------------------------------------------------//
+    // Thêm các models lúc khởi tạo                                             
+    displayEntidyList = initDisplayEntidyList();                                
     
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);

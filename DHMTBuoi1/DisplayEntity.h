@@ -25,6 +25,7 @@ class DisplayEntity {
 
 
     std::string name;
+    std::string type;
     Point translatePoint = Point();
     GLfloat angle = 0.0f;
     GLfloatColor color = GLfloatColor();

@@ -29,9 +29,6 @@
     <ClInclude Include="Point.h">
       <Filter>Source Files\Library</Filter>
     </ClInclude>
-    <ClInclude Include="GLfloatColor.h">
-      <Filter>Source Files\Library</Filter>
-    </ClInclude>
     <ClInclude Include="DisplayEntity.h">
       <Filter>Source Files\Library</Filter>
     </ClInclude>
@@ -49,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="handleFrame.h">
       <Filter>Source Files\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="GLfloatColor.h">
+      <Filter>Source Files\Library</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
