@@ -14,8 +14,8 @@
 #include <list>;
 
 
-std::list<DisplayEntity*> initDisplayEntidyList() {
-    std::list<DisplayEntity*> displayEntidyList = std::list<DisplayEntity*>();
+std::list<DisplayEntity> initDisplayEntidyList() {
+    std::list<DisplayEntity> displayEntidyList = std::list<DisplayEntity>();
     //------------------------------------------------------
     // 1.   Sun model
     //------------------------------------------------------
@@ -36,7 +36,7 @@ std::list<DisplayEntity*> initDisplayEntidyList() {
         glutWireSphere(2.0, 50, 40);
         glPopMatrix();
     };
-    displayEntidyList.push_back(&sunModel);
+    displayEntidyList.push_back(sunModel);
 
     //------------------------------------------------------
     // 2.   Earth model
@@ -50,7 +50,7 @@ std::list<DisplayEntity*> initDisplayEntidyList() {
         glPopMatrix();
     };
     earthModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->angle += 3.0f;
+        model->angle += 10.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
         if (model->angle > 360)
         {
@@ -61,7 +61,7 @@ std::list<DisplayEntity*> initDisplayEntidyList() {
         model->translatePoint.x = 3 * sin(model->angle*3.14/180);
         model->translatePoint.z = 3 * cos(model->angle*3.14/180);
     };
-    displayEntidyList.push_back(&earthModel);
+    displayEntidyList.push_back(earthModel);
 
     //------------------------------------------------------
     // 3.   Venus model
@@ -84,7 +84,7 @@ std::list<DisplayEntity*> initDisplayEntidyList() {
             (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor
         );
         //
-        model->angle += 20.0f;
+        model->angle += 5.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
         if (model->angle > 360)
         {
@@ -95,14 +95,14 @@ std::list<DisplayEntity*> initDisplayEntidyList() {
         model->translatePoint.y = 3 * sin(model->angle*3.14/180);
         model->translatePoint.z = 3 * cos(model->angle*3.14/180);
     };
-    displayEntidyList.push_back(&venusModel);
+    displayEntidyList.push_back(venusModel);
 
     //------------------------------------------------------
     // 4.   Moon model
     //------------------------------------------------------
     DisplayEntity moonModel;
     moonModel.name = "Moon";
-    moonModel.neighbors.push_back(&earthModel);
+    moonModel.neighbors.push_back(&displayEntidyList.back());
     moonModel.modelRenderingFunc = [](DisplayEntity model) { 
         glPushMatrix();
         glTranslatef(
@@ -115,7 +115,7 @@ std::list<DisplayEntity*> initDisplayEntidyList() {
     };
     moonModel.setColor(0.0f, 1.0f, 0.0f);
     moonModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->angle -= 30.0f;
+        model->angle -= 5.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
         if (model->angle > 360)
         {
@@ -123,10 +123,38 @@ std::list<DisplayEntity*> initDisplayEntidyList() {
         }
         // theo trục y và z thì côgn thức học cấp
         // 3 cho biết thế này:
-        model->translatePoint.y = 1 * sin(model->angle*3.14/180);
+        model->translatePoint.x = 1 * sin(model->angle*3.14/180);
         model->translatePoint.z = 1 * cos(model->angle*3.14/180);
     };
-    displayEntidyList.push_back(&moonModel);
+    displayEntidyList.push_back(moonModel);
+
+    //------------------------------------------------------
+    // 4.   L model
+    //------------------------------------------------------
+    DisplayEntity lineModel;
+    lineModel.name = "Line";
+    lineModel.neighbors.push_back(&displayEntidyList.back());
+    lineModel.modelRenderingFunc = [](DisplayEntity model) { 
+        glBegin(GL_LINES);
+	    //glColor3f(1, 1, 1);
+	    glVertex3f(-100, 0, 0);
+	    glVertex3f(100, 0, 0);
+	    glEnd();
+
+	    glBegin(GL_LINES);
+	    glColor3f(0, 1, 0);
+	    glVertex3f(0,-100, 0);
+	    glVertex3f(0, 100, 0);
+	    glEnd();
+
+        glBegin(GL_LINES);
+	    glColor3f(0, 1, 1);
+	    glVertex3f(0, 0 , -100);
+	    glVertex3f(0, 0, 100);
+	    glEnd();
+    };
+    lineModel.setColor(1.0f, 1.0f, 1.0f);
+    displayEntidyList.push_back(lineModel);
 
 
     return displayEntidyList;

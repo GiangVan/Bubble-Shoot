@@ -1,5 +1,4 @@
 ﻿// DHMTBuoi1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 #include <stdlib.h>;
 #include <stdio.h>;
 #include <list>;
@@ -16,7 +15,7 @@
 using namespace std;
 
 //Init variables
-list<DisplayEntity*> displayEntidyList;
+list<DisplayEntity> displayEntidyList;
 CameraEntity cameraEntity;
 
 
@@ -27,8 +26,8 @@ void render(void) {
     //--------------------------------------------------------------------------//
     // Hiển thị các models                                                      //
     //--------------------------------------------------------------------------//
-    for(DisplayEntity *item : displayEntidyList){                               //
-        item->display(*item);                                                   //
+    for(DisplayEntity item : displayEntidyList){                               //
+        item.display(item);                                                   //
     }                                                                           //
     //--------------------------------------------------------------------------//
   
@@ -44,7 +43,7 @@ void render(void) {
     //--------------------------------------------------------------------------//
     // Xử lý frame                                                              //
     //--------------------------------------------------------------------------//
-    handleFrame(beginframe);
+    handleFrame(beginframe);                                                    //
     //--------------------------------------------------------------------------//
 }
 
@@ -52,8 +51,9 @@ void update() {
     //--------------------------------------------------------------------------//
     // Thuộc tính của các models được update                                    //
     //--------------------------------------------------------------------------//
-    for(DisplayEntity *item : displayEntidyList){                               //
-        item->update(item);                                                     //
+    for(DisplayEntity &item : displayEntidyList){                               //
+        DisplayEntity* ptr = &item;
+        ptr->update(&item);                                                     //
     }                                                                           //
     //--------------------------------------------------------------------------//
 
