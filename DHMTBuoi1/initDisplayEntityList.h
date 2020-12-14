@@ -22,7 +22,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     DisplayEntity sunModel;
     sunModel.name = "Sun";
     sunModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->angle += 1.0f;
+        // model->angle += 1.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
         if (model->angle > 360)
         {
@@ -43,6 +43,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     //------------------------------------------------------
     DisplayEntity earthModel;
     earthModel.name = "Earth";
+    earthModel.angle = 180.0f;
     earthModel.modelRenderingFunc = [](DisplayEntity model) { 
         glPushMatrix();
         glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
@@ -50,7 +51,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
         glPopMatrix();
     };
     earthModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->angle -= 10.0f;
+        //model->angle -= 10.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
         if (model->angle > 360)
         {
@@ -68,6 +69,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     //------------------------------------------------------
     DisplayEntity venusModel;
     venusModel.neighbors.push_back(&displayEntidyList.back());
+    venusModel.angle = 180.0f;
     venusModel.name = "Venus";
     venusModel.modelRenderingFunc = [](DisplayEntity model) { 
         glPushMatrix();
@@ -87,12 +89,12 @@ std::list<DisplayEntity> initDisplayEntidyList() {
             model->neighbors.back()->setColor(0, 0, 1);
         }
         else {
-            model->setColor(1, 1, 1);
-            model->neighbors.back()->setColor(1, 1, 1);
+            //model->setColor(1, 1, 1);
+            //model->neighbors.back()->setColor(1, 1, 1);
         }
         //change color
         //
-        model->angle += 5.0f;
+        // model->angle += 5.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
         if (model->angle > 360)
         {
@@ -101,9 +103,51 @@ std::list<DisplayEntity> initDisplayEntidyList() {
         // theo trục y và z thì côgn thức học cấp
         // 3 cho biết thế này:
         model->translatePoint.x = 3 * sin(model->angle*3.14/180);
-        model->translatePoint.y = 3 * cos(model->angle*3.14/180);
+        model->translatePoint.z = 3 * cos(model->angle*3.14/180);
     };
     displayEntidyList.push_back(venusModel);
+
+    //------------------------------------------------------
+    // 3.   Venus model
+    //------------------------------------------------------
+    DisplayEntity mars;
+    mars.neighbors.push_back(&displayEntidyList.back());
+    mars.name = "Mars";
+    mars.modelRenderingFunc = [](DisplayEntity model) { 
+        glPushMatrix();
+        glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
+        glutWireSphere(0.5, 100, 80);
+        glPopMatrix();
+    };
+    mars.modelUpdatingFunc = [](DisplayEntity *model) { 
+        GLfloat range = 1.0f;
+        GLfloat distance = sqrt(
+            pow(model->translatePoint.x - model->neighbors.back()->translatePoint.x, 2) +
+            pow(model->translatePoint.y - model->neighbors.back()->translatePoint.y, 2) +
+            pow(model->translatePoint.z - model->neighbors.back()->translatePoint.z, 2)
+        );
+        if (distance < range) {
+            model->setColor(1, 0, 0);
+            model->neighbors.back()->setColor(0, 0, 1);
+        }
+        else {
+            //model->setColor(1, 1, 1);
+            //model->neighbors.back()->setColor(1, 1, 1);
+        }
+        //change color
+        //
+        // model->angle += 3.0f;
+        // đủ 360 độ sẽ quay về tính lại là 0
+        if (model->angle > 360)
+        {
+            model->angle = 0;
+        }
+        // theo trục y và z thì côgn thức học cấp
+        // 3 cho biết thế này:
+        model->translatePoint.y = 3 * sin(model->angle*3.14/180);
+        model->translatePoint.z = 3 * cos(model->angle*3.14/180);
+    };
+    displayEntidyList.push_back(mars);
 
     //------------------------------------------------------
     // 4.   Moon model

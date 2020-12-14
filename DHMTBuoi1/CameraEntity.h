@@ -19,7 +19,7 @@ class CameraEntity {
 //--------------------------------------------------------------------------
     CameraEntity(){ }
 
-    Point eyePoint = Point(0.0f, 0.0f, 10.0f);
+    Point eyePoint = Point(10.0f, 10.0f, 10.0f);
     Point centerPoint = Point(0.0f, 0.0f, 0.0f);
     Point upPoint = Point(0.0f, 1.0f, 0.0f);
     Point mousePoint = Point();
