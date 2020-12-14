@@ -50,7 +50,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
         glPopMatrix();
     };
     earthModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->angle += 10.0f;
+        model->angle -= 10.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
         if (model->angle > 360)
         {
@@ -59,7 +59,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
         // theo trục x và z thì côgn thức học cấp
         // 3 cho biết thế này:
         model->translatePoint.x = 3 * sin(model->angle*3.14/180);
-        model->translatePoint.z = 3 * cos(model->angle*3.14/180);
+        model->translatePoint.y = 3 * cos(model->angle*3.14/180);
     };
     displayEntidyList.push_back(earthModel);
 
@@ -67,6 +67,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     // 3.   Venus model
     //------------------------------------------------------
     DisplayEntity venusModel;
+    venusModel.neighbors.push_back(&displayEntidyList.back());
     venusModel.name = "Venus";
     venusModel.modelRenderingFunc = [](DisplayEntity model) { 
         glPushMatrix();
@@ -75,14 +76,21 @@ std::list<DisplayEntity> initDisplayEntidyList() {
         glPopMatrix();
     };
     venusModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        //change color
-        int maxColor = 100;
-        int minColor = 10;
-        model->setColor(
-            (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor, 
-            (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor, 
-            (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor
+        GLfloat range = 1.0f;
+        GLfloat distance = sqrt(
+            pow(model->translatePoint.x - model->neighbors.back()->translatePoint.x, 2) +
+            pow(model->translatePoint.y - model->neighbors.back()->translatePoint.y, 2) +
+            pow(model->translatePoint.z - model->neighbors.back()->translatePoint.z, 2)
         );
+        if (distance < range) {
+            model->setColor(1, 0, 0);
+            model->neighbors.back()->setColor(0, 0, 1);
+        }
+        else {
+            model->setColor(1, 1, 1);
+            model->neighbors.back()->setColor(1, 1, 1);
+        }
+        //change color
         //
         model->angle += 5.0f;
         // đủ 360 độ sẽ quay về tính lại là 0
@@ -92,8 +100,8 @@ std::list<DisplayEntity> initDisplayEntidyList() {
         }
         // theo trục y và z thì côgn thức học cấp
         // 3 cho biết thế này:
-        model->translatePoint.y = 3 * sin(model->angle*3.14/180);
-        model->translatePoint.z = 3 * cos(model->angle*3.14/180);
+        model->translatePoint.x = 3 * sin(model->angle*3.14/180);
+        model->translatePoint.y = 3 * cos(model->angle*3.14/180);
     };
     displayEntidyList.push_back(venusModel);
 
@@ -142,7 +150,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
 	    glEnd();
 
 	    glBegin(GL_LINES);
-	    glColor3f(0, 1, 0);
+	    glColor3f(1, 1, 0);
 	    glVertex3f(0,-100, 0);
 	    glVertex3f(0, 100, 0);
 	    glEnd();
