@@ -57,10 +57,16 @@ class CameraEntity {
 
         switch (key) {
             case 'w':
-                eyePoint.z -= speed;
+                eyePoint.y = eyePoint. y + 0.2;
                 break;
             case 's':
-                eyePoint.z += speed;
+                eyePoint.y = eyePoint.y - 0.2;
+                break;
+            case 'a':
+                eyePoint.x = eyePoint.x - 0.2;
+                break;
+            case 'd':
+                eyePoint.x = eyePoint.x + 0.2;
                 break;
        
             case '8':

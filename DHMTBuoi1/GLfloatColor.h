@@ -23,4 +23,20 @@ class GLfloatColor {
             (GLfloat)(rand() % (maxColor - minColor + 1) + minColor) / maxColor
         );
     }
+
+    static GLfloatColor redColor() {
+        return GLfloatColor(1.0f, 0.0f, 0.0f);
+    }
+
+    static GLfloatColor blueColor() {
+        return GLfloatColor(0.0f, 0.0f, 1.0f);
+    }
+
+    static GLfloatColor greenColor() {
+        return GLfloatColor(0.0f, 1.0f, 0.0f);
+    }
+
+    static GLfloatColor orangeColor() {
+        return GLfloatColor(1.0f, 0.4f, 0.0f);
+    }
 };

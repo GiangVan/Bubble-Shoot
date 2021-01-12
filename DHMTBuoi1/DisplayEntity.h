@@ -9,7 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 
 #include <string>;
-#include <vector>;
+#include <list>;
 #include "Point.h";
 #include "GLfloatColor.h";
 #include "Dependencies/glew/glew.h";
@@ -28,11 +28,13 @@ class DisplayEntity {
     std::string type;
     Point translatePoint = Point();
     GLfloat angle = 0.0f;
+    GLfloat centerAngle = 0.0f;
+    GLfloat speed = 0.0f;
     GLfloatColor color = GLfloatColor();
     void (*modelRenderingFunc)(DisplayEntity model) = 0;
     void (*modelUpdatingFunc)(DisplayEntity *model) = 0;
     bool isDestroy = false;
-    std::vector<DisplayEntity*> neighbors;
+    std::list<DisplayEntity*> neighbors;
 
     
     void display(DisplayEntity model) {
@@ -61,5 +63,32 @@ class DisplayEntity {
         translatePoint.x = x;
         translatePoint.y = y;
         translatePoint.z = z;
+    }
+
+    void randomTranslatePoint(int min, int max, GLfloat distance = 0){
+        GLfloat random = (GLfloat)(rand() % (max - min + 1) + min);
+        if (random * random < distance * distance) {
+            if (random < 0) {
+                distance *= -1;
+            }
+            random += distance;
+        }
+        translatePoint.x = random;
+        random = (GLfloat)(rand() % (max - min + 1) + min);
+        if (random * random < distance * distance) {
+            if (random < 0) {
+                distance *= -1;
+            }
+            random += distance;
+        }
+        translatePoint.y = random;
+        random = (GLfloat)(rand() % (max - min + 1) + min);
+        if (random * random < distance * distance) {
+            if (random < 0) {
+                distance *= -1;
+            }
+            random += distance;
+        }
+        translatePoint.z = random;
     }
 };

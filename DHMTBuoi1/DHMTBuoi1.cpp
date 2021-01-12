@@ -19,7 +19,6 @@ using namespace std;
 list<DisplayEntity> displayEntidyList;
 CameraEntity cameraEntity;
 
-
 void render(void) {
     int beginframe = getMilliCount();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -30,6 +29,7 @@ void render(void) {
     }                                                                           
   
     glMatrixMode(GL_MODELVIEW);
+
     // Update hiển thị camera                                                   
     cameraEntity.display();                                                    
 
@@ -76,7 +76,7 @@ void update() {
     } 
 
     // Kiểm tra va chạm
-    checkCollision(&displayEntidyList, "collision_check");
+    //checkCollision(&displayEntidyList, "collision_check");
 
     glutPostRedisplay();
 }
@@ -114,11 +114,30 @@ void init(void)
     glShadeModel(GL_FLAT);
 }
 
+void UpdateTokens(int time) {
+    DisplayEntity sunModel;
+    sunModel.name = "entitis";
+    sunModel.randomTranslatePoint(-10, 10, 3.0f);
+    sunModel.translatePoint.y = 0;
+    sunModel.modelRenderingFunc = [](DisplayEntity model) { 
+        glPushMatrix();
+        glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
+        glutWireSphere(0.20, 50, 40);
+        glPopMatrix();
+    };
+    sunModel.modelUpdatingFunc = [](DisplayEntity *model) { 
+        model->translatePoint.x -= 0.15f;
+        model->translatePoint.z -= 0.15f;
+    };
+    displayEntidyList.push_back(sunModel);
+    glutTimerFunc(100, UpdateTokens, 0);
+}
+
 int main(int argc, char** argv)
 {
     // Thêm các models lúc khởi tạo                                             
-    displayEntidyList = initDisplayEntidyList();                                
-    
+    displayEntidyList = initDisplayEntidyList();  
+
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(800, 800);
@@ -131,6 +150,7 @@ int main(int argc, char** argv)
     glutKeyboardFunc(inputProcess);
     glutMouseFunc(mouseClickProcess);
     glutMotionFunc(mouseMoveProcess);
+    glutTimerFunc(500, UpdateTokens, 0);
     glutIdleFunc(update);
     glutMainLoop();
     return 0;

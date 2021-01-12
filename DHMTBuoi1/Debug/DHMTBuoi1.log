@@ -20,12 +20,12 @@ C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DisplayEntity.h(16,10)
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(10,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(13,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(14,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(64,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(65,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(89,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(90,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(115,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(116,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(54,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(55,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(91,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(92,37): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(118,77): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\initDisplayEntityList.h(119,77): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(10,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -36,6 +36,10 @@ C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(45,23):
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(46,23): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(51,24): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(52,24): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(60,42): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(63,41): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(66,41): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\CameraEntity.h(69,41): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\DHMTBuoi1.cpp(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\getMilliCount.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\getMilliCount.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
