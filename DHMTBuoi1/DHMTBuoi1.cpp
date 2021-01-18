@@ -91,10 +91,63 @@ void reshape(int w, int h) {
     glLoadIdentity();
     gluLookAt(0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
+DisplayEntity createBall(DisplayEntity* model) {
+    DisplayEntity venusModel;
+    venusModel.name = "venus";
+    venusModel.type = "collision_check";
+    venusModel.color = GLfloatColor::orangeColor();
+    venusModel.setTranslatePoint(model->translatePoint.x, model->translatePoint.y, model->translatePoint.z);
+    venusModel.modelRenderingFunc = [](DisplayEntity model) {
+        glPushMatrix();
+        glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
+        glutWireSphere(0.1, 100, 80);
+        glPopMatrix();
+    };
+    venusModel.modelUpdatingFunc = [](DisplayEntity* model) {
+        model->translatePoint.x -= 0.15f;
+        model->translatePoint.z -= 0.15f;
+    };
+    return venusModel;
+}
+
+void keyboardGun(unsigned char key, int x, int y, DisplayEntity* model) {
+    GLfloat speed = 0.5f;
+
+   switch (key) {
+    case '6':
+        model->translatePoint.x += 0.15f;
+        model->translatePoint.z -= 0.15f;
+        break;
+    case '4':
+        model->translatePoint.x -= 0.15f;
+        model->translatePoint.z += 0.15f;
+        break;
+    default:
+        break;
+    }
+}
+
+void keyboardShoot(unsigned char key, int x, int y, DisplayEntity* model) {
+    if (key == '5') {
+        DisplayEntity ball = createBall(model);
+        displayEntidyList.push_back(ball);
+
+    }
+}
 
 void inputProcess(unsigned char key, int x, int y) {
+    cameraEntity.keyboardHadler(key, x, y); 
     // Handle move camera follow keybord                                        
-    cameraEntity.keyboardHadler(key, x, y);                                     
+    DisplayEntity* gunPtr = nullptr;
+    for (DisplayEntity& item : displayEntidyList) {
+        if (item.name == "Gun") {
+            gunPtr = &item;
+        }
+    }
+    if (gunPtr != NULL) {
+        keyboardGun(key, x, y, gunPtr);
+        keyboardShoot(key, x, y, gunPtr);
+    }
 }
 
 void mouseClickProcess(int button, int state, int x, int y) {

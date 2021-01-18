@@ -57,7 +57,7 @@ class CameraEntity {
 
         switch (key) {
             case 'w':
-                eyePoint.y = eyePoint. y + 0.2;
+                centerPoint.y = centerPoint. y + 0.2;
                 break;
             case 's':
                 eyePoint.y = eyePoint.y - 0.2;
@@ -66,21 +66,9 @@ class CameraEntity {
                 eyePoint.x = eyePoint.x - 0.2;
                 break;
             case 'd':
-                eyePoint.x = eyePoint.x + 0.2;
+                eyePoint.z = eyePoint.z + 0.2;
                 break;
-       
-            case '8':
-                upPoint.y += speed * 10;
-                break;
-            case '2':
-                upPoint.y -= speed * 10;
-                break;
-            case '4':
-                upPoint.x -= speed * 10;
-                break;
-            case '6':
-                upPoint.x += speed * 10;
-                break;
+
             default:   
                 break;
         }
