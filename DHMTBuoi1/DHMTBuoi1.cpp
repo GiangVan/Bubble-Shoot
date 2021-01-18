@@ -126,8 +126,8 @@ void UpdateTokens(int time) {
         glPopMatrix();
     };
     sunModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->translatePoint.x -= 0.15f;
-        model->translatePoint.z -= 0.15f;
+        model->translatePoint.x += 0.15f;
+        model->translatePoint.z += 0.15f;
     };
     displayEntidyList.push_back(sunModel);
     glutTimerFunc(100, UpdateTokens, 0);
