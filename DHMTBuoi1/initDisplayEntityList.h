@@ -171,11 +171,24 @@ std::list<DisplayEntity> initDisplayEntidyList() {
    //------------------------------------------------------
     DisplayEntity GunModel;
     GunModel.name = "Gun";
+    GunModel.size = 0.4f;
+    GunModel.type = "collision_check";
+    GunModel.angle = 90;
     GunModel.setColor(0, 0, 1);
-    GunModel.setTranslatePoint(5.0f, 0.0f, 5.0f);
+    GunModel.setTranslatePoint(5.0f, 0.0f + GunModel.size / 2, 5.0f);
+    GunModel.modelUpdatingFunc = [](DisplayEntity *model) {
+        if (model->angle < 360) {
+            model->angle += 20;
+        } else {
+            model->angle = 0;
+        }
+    };
     GunModel.modelRenderingFunc = [](DisplayEntity model) {
         glPushMatrix();
         glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
+        
+        glScalef(model.size, model.size, model.size);
+        glRotatef(model.angle,1,1,1);
         glBegin(GL_QUADS);
         // Vẽ mặt trên 
         glNormal3d(0, 1, 0);

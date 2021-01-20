@@ -12,20 +12,35 @@
 #include "getMilliCount.h";
 #include "handleFrame.h";
 #include "GLfloatColor.h";
+//#include <MMSystem.h>;
+//#include "RGBPixMap.h";
 
+GLfloat MAX_RANGE = 20.0f;
 using namespace std;
 
 //Init variables
 list<DisplayEntity> displayEntidyList;
 CameraEntity cameraEntity;
 
+list<DisplayEntity> clearItemFromList(list<DisplayEntity> list) {
+    std::list<DisplayEntity> newList;
+    for (DisplayEntity item : list) {
+        if (item.status != "removed") {
+            newList.push_back(item);
+        }
+    }
+
+    return newList;
+}
+
 void render(void) {
     int beginframe = getMilliCount();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Hiển thị các models                                                     
-    for(DisplayEntity item : displayEntidyList){                               
-        item.display(item);                                                   
+    // Hiển thị các models    
+    displayEntidyList = clearItemFromList(displayEntidyList);
+    for(DisplayEntity item : displayEntidyList){                                      
+        item.display(item);
     }                                                                           
   
     glMatrixMode(GL_MODELVIEW);
@@ -41,7 +56,7 @@ void render(void) {
 
 void checkCollision(list<DisplayEntity> *entities, string type) {
     // init variables
-    GLfloat range = 1.0f;
+    GLfloat range;
     GLfloat distance;
     list<DisplayEntity*> checkedEntities;
     for(DisplayEntity &item : *entities){    
@@ -52,13 +67,14 @@ void checkCollision(list<DisplayEntity> *entities, string type) {
     // do check
     for(DisplayEntity *item : checkedEntities){    
         for(DisplayEntity *sub_item : checkedEntities){    
-            if (item != sub_item) {
+            if (item != sub_item && item->name != sub_item->name) {
                 distance = sqrt(
                     pow(item->translatePoint.x - sub_item->translatePoint.x, 2) +
                     pow(item->translatePoint.y - sub_item->translatePoint.y, 2) +
                     pow(item->translatePoint.z - sub_item->translatePoint.z, 2)
                 );
 
+                range = (item->size + sub_item->size) - (item->size + sub_item->size) * 0.15;
                 if (distance < range) {
                     item->color = GLfloatColor::getRandomColor();
                     sub_item->color = GLfloatColor::getRandomColor();
@@ -69,14 +85,16 @@ void checkCollision(list<DisplayEntity> *entities, string type) {
 }
 
 void update() {
-    // Thuộc tính của các models được update                                    
-    for(DisplayEntity &item : displayEntidyList){                               
+    // Thuộc tính của các models được update   
+    list<DisplayEntity> removedList;
+    displayEntidyList = clearItemFromList(displayEntidyList);
+    for(DisplayEntity &item : displayEntidyList){
         DisplayEntity* ptr = &item;
-        ptr->update(&item);                                                     
-    } 
+        ptr->update(&item);
+    }  
 
     // Kiểm tra va chạm
-    //checkCollision(&displayEntidyList, "collision_check");
+    checkCollision(&displayEntidyList, "collision_check");
 
     glutPostRedisplay();
 }
@@ -91,24 +109,24 @@ void reshape(int w, int h) {
     glLoadIdentity();
     gluLookAt(0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
-DisplayEntity createBall(DisplayEntity* model) {
-    DisplayEntity venusModel;
-    venusModel.name = "venus";
-    venusModel.type = "collision_check";
-    venusModel.color = GLfloatColor::orangeColor();
-    venusModel.setTranslatePoint(model->translatePoint.x, model->translatePoint.y, model->translatePoint.z);
-    venusModel.modelRenderingFunc = [](DisplayEntity model) {
-        glPushMatrix();
-        glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
-        glutWireSphere(0.1, 100, 80);
-        glPopMatrix();
-    };
-    venusModel.modelUpdatingFunc = [](DisplayEntity* model) {
-        model->translatePoint.x -= 0.15f;
-        model->translatePoint.z -= 0.15f;
-    };
-    return venusModel;
-}
+//DisplayEntity createBall(DisplayEntity* model) {
+//    DisplayEntity venusModel;
+//    venusModel.name = "venus";
+//    venusModel.type = "collision_check";
+//    venusModel.color = GLfloatColor::orangeColor();
+//    venusModel.setTranslatePoint(model->translatePoint.x, model->translatePoint.y, model->translatePoint.z);
+//    venusModel.modelRenderingFunc = [](DisplayEntity model) {
+//        glPushMatrix();
+//        glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
+//        glutWireSphere(0.1, 100, 80);
+//        glPopMatrix();
+//    };
+//    venusModel.modelUpdatingFunc = [](DisplayEntity* model) {
+//        model->translatePoint.x -= 0.15f;
+//        model->translatePoint.z -= 0.15f;
+//    };
+//    return venusModel;
+//}
 
 void keyboardGun(unsigned char key, int x, int y, DisplayEntity* model) {
     GLfloat speed = 0.5f;
@@ -126,14 +144,14 @@ void keyboardGun(unsigned char key, int x, int y, DisplayEntity* model) {
         break;
     }
 }
-
-void keyboardShoot(unsigned char key, int x, int y, DisplayEntity* model) {
-    if (key == '5') {
-        DisplayEntity ball = createBall(model);
-        displayEntidyList.push_back(ball);
-
-    }
-}
+//
+//void keyboardShoot(unsigned char key, int x, int y, DisplayEntity* model) {
+//    if (key == '5') {
+//        DisplayEntity ball = createBall(model);
+//        displayEntidyList.push_back(ball);
+//
+//    }
+//}
 
 void inputProcess(unsigned char key, int x, int y) {
     cameraEntity.keyboardHadler(key, x, y); 
@@ -146,7 +164,7 @@ void inputProcess(unsigned char key, int x, int y) {
     }
     if (gunPtr != NULL) {
         keyboardGun(key, x, y, gunPtr);
-        keyboardShoot(key, x, y, gunPtr);
+        /*keyboardShoot(key, x, y, gunPtr);*/
     }
 }
 
@@ -168,21 +186,28 @@ void init(void)
 }
 
 void UpdateTokens(int time) {
-    DisplayEntity sunModel;
-    sunModel.name = "entitis";
-    sunModel.randomTranslatePoint(-10, 10, 3.0f);
-    sunModel.translatePoint.y = 0;
-    sunModel.modelRenderingFunc = [](DisplayEntity model) { 
+    DisplayEntity enemy;
+    enemy.name = "enemies";
+    enemy.size = (GLfloat)(rand() % (400 - 100 + 1) + 100) / 1000;
+    enemy.speed = (GLfloat)(rand() % (400 - 100 + 1) + 100) / 1000;
+    enemy.type = "collision_check";
+    enemy.randomTranslatePoint(-10, 10, -5.0f);
+    enemy.translatePoint.y = 0;
+    enemy.modelRenderingFunc = [](DisplayEntity model) {
         glPushMatrix();
         glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
-        glutWireSphere(0.20, 50, 40);
+        glutWireSphere(model.size, 50, 40);
         glPopMatrix();
     };
-    sunModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->translatePoint.x += 0.15f;
-        model->translatePoint.z += 0.15f;
+    enemy.modelUpdatingFunc = [](DisplayEntity *model) {
+        model->translatePoint.x += model->speed;
+        model->translatePoint.z += model->speed;
+
+        if (model->translatePoint.x > MAX_RANGE || model->translatePoint.z > MAX_RANGE) {
+            model->status = "removed";
+        }
     };
-    displayEntidyList.push_back(sunModel);
+    displayEntidyList.push_back(enemy);
     glutTimerFunc(100, UpdateTokens, 0);
 }
 

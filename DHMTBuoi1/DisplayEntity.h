@@ -28,6 +28,8 @@ class DisplayEntity {
     std::string type;
     Point translatePoint = Point();
     GLfloat angle = 0.0f;
+    GLfloat size = 0.0f;
+    std::string status = "alive";
     GLfloat centerAngle = 0.0f;
     GLfloat speed = 0.0f;
     GLfloatColor color = GLfloatColor();
@@ -65,30 +67,16 @@ class DisplayEntity {
         translatePoint.z = z;
     }
 
-    void randomTranslatePoint(int min, int max, GLfloat distance = 0){
-        GLfloat random = (GLfloat)(rand() % (max - min + 1) + min);
-        if (random * random < distance * distance) {
-            if (random < 0) {
-                distance *= -1;
-            }
-            random += distance;
-        }
-        translatePoint.x = random;
-        random = (GLfloat)(rand() % (max - min + 1) + min);
-        if (random * random < distance * distance) {
-            if (random < 0) {
-                distance *= -1;
-            }
-            random += distance;
-        }
-        translatePoint.y = random;
-        random = (GLfloat)(rand() % (max - min + 1) + min);
-        if (random * random < distance * distance) {
-            if (random < 0) {
-                distance *= -1;
-            }
-            random += distance;
-        }
-        translatePoint.z = random;
+    float RandomFloat(float a, float b) {
+        float random = ((float)rand()) / (float)RAND_MAX;
+        float diff = b - a;
+        float r = random * diff;
+        return a + r;
+    }
+
+    void randomTranslatePoint(float min, float max, GLfloat start = 0){
+        GLfloat random = RandomFloat(min, max);
+        translatePoint.x = random + start;
+        translatePoint.z = start - random;
     }
 };
