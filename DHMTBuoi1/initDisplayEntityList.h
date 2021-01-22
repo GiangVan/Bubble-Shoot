@@ -77,7 +77,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     GunModel.setTranslatePoint(5.0f, 0.0f + GunModel.size / 2, 5.0f);
     GunModel.modelUpdatingFunc = [](DisplayEntity *model) {
         if (model->angle < 360) {
-            model->angle += 20;
+            model->angle += 22;
         } else {
             model->angle = 0;
         }

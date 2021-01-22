@@ -35,10 +35,11 @@ void checkCollision(list<DisplayEntity> *entities, string type) {
                             ) {
                             if (containsInStringList(item->type, MAIN_TYPE)) {
                                 sub_item->status = REMOVED_STATUS;
+                                score += getScore(*sub_item);
                             }
                             else {
                                 item->status = REMOVED_STATUS;
-                                //score += MINIMUM_SCORE + ;
+                                score += getScore(*item);
                             }
                         }
                         else {

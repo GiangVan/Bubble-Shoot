@@ -12,7 +12,7 @@
 float score = 0.0f;
 
 const GLfloat MAX_RANGE = 20.0f;
-const GLfloat GUN_SPEED = 0.2f;
+const GLfloat GUN_SPEED = 0.1f;
 const float MINIMUM_SCORE = 1000.0f;
 const unsigned int GENERATE_TIME = 80;
 const unsigned int START_TIME = 2000;
@@ -24,6 +24,7 @@ const std::string REMOVED_STATUS = "removed";
 
 #include "DisplayEntity.h";
 #include "initDisplayEntityList.h";
+#include "getScore.h";
 #include "CameraEntity.h";
 #include "checkCollision.h";
 #include "createRandomBall.h";
@@ -82,26 +83,32 @@ void reshape(int w, int h) {
     glViewport(0, 0, (GLsizei)w, (GLsizei)h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(60.0, (GLfloat)w / (GLfloat)h, 1.0, 20.0);
+    gluPerspective(60.0, (GLfloat)w / (GLfloat)h, 0.01, 100.0);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
-void keyboardGun(unsigned char key, int x, int y, DisplayEntity* model) {
-    GLfloat speed = 0.5f;
 
-   switch (key) {
+GLfloat left = 0.0f;
+GLfloat right = 0.0f;
+
+void keyboardGun(unsigned char key, int x, int y, DisplayEntity* model) {
+    GLfloat speed = GUN_SPEED + left + right;
+
+    switch (key) {
     case '6':
-        model->translatePoint.x += GUN_SPEED;
-        model->translatePoint.z -= GUN_SPEED;
+        right += GUN_SPEED / 5.0f;
+        left = 0.0f;
+        model->translatePoint.x += speed;
+        model->translatePoint.z -= speed;
         break;
     case '4':
-        model->translatePoint.x -= GUN_SPEED;
-        model->translatePoint.z += GUN_SPEED;
-        break;
-    default:
+        left += GUN_SPEED / 5.0f;
+        right = 0.0f;
+        model->translatePoint.x -= speed;
+        model->translatePoint.z += speed;
         break;
     }
 }
@@ -151,7 +158,7 @@ int main(int argc, char** argv)
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-    glutInitWindowSize(800, 800);
+    glutInitWindowSize(1200, 800);
 
     glutInitWindowPosition(100, 100);
     glutCreateWindow(argv[0]);

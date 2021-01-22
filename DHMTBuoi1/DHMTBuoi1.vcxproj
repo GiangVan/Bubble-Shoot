@@ -155,6 +155,7 @@
     <ClInclude Include="createRandomBall.h" />
     <ClInclude Include="DisplayEntity.h" />
     <ClInclude Include="getMilliCount.h" />
+    <ClInclude Include="getScore.h" />
     <ClInclude Include="GLfloatColor.h" />
     <ClInclude Include="handleFrame.h" />
     <ClInclude Include="initDisplayEntityList.h" />
