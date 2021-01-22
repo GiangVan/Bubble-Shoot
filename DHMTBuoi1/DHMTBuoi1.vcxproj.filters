@@ -50,5 +50,20 @@
     <ClInclude Include="GLfloatColor.h">
       <Filter>Source Files\Library</Filter>
     </ClInclude>
+    <ClInclude Include="randomFloat.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="clearItemFromList.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="containsInStringList.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="checkCollision.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="createRandomBall.h">
+      <Filter>Source Files\Func</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

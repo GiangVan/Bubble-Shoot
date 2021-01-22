@@ -12,6 +12,7 @@
 #include <list>;
 #include "Point.h";
 #include "GLfloatColor.h";
+#include "randomFloat.h";
 #include "Dependencies/glew/glew.h";
 #include "Dependencies/freeglut/freeglut.h";
 
@@ -25,7 +26,7 @@ class DisplayEntity {
 
 
     std::string name;
-    std::string type;
+    std::list<std::string> type;
     Point translatePoint = Point();
     GLfloat angle = 0.0f;
     GLfloat size = 0.0f;
@@ -67,15 +68,8 @@ class DisplayEntity {
         translatePoint.z = z;
     }
 
-    float RandomFloat(float a, float b) {
-        float random = ((float)rand()) / (float)RAND_MAX;
-        float diff = b - a;
-        float r = random * diff;
-        return a + r;
-    }
-
     void randomTranslatePoint(float min, float max, GLfloat start = 0){
-        GLfloat random = RandomFloat(min, max);
+        GLfloat random = randomFloat(min, max);
         translatePoint.x = random + start;
         translatePoint.z = start - random;
     }

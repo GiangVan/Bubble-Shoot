@@ -91,12 +91,12 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>E:\DHMT\Bubble-Shoot-master\DHMTBuoi1\Dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\DHMT\Bubble-Shoot-master\DHMTBuoi1\Dependencies\glew;E:\DHMT\Bubble-Shoot-master\DHMTBuoi1\Dependencies\freeglut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Dependencies\glew;C:\Users\Acer\Desktop\do hoa may tinh\DHMTBuoi3\DHMTBuoi1\Dependencies\freeglut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>freeglut.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -149,12 +149,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraEntity.h" />
+    <ClInclude Include="checkCollision.h" />
+    <ClInclude Include="clearItemFromList.h" />
+    <ClInclude Include="containsInStringList.h" />
+    <ClInclude Include="createRandomBall.h" />
     <ClInclude Include="DisplayEntity.h" />
     <ClInclude Include="getMilliCount.h" />
     <ClInclude Include="GLfloatColor.h" />
     <ClInclude Include="handleFrame.h" />
     <ClInclude Include="initDisplayEntityList.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="randomFloat.h" />
     <ClInclude Include="sleep.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

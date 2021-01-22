@@ -17,111 +17,9 @@
 std::list<DisplayEntity> initDisplayEntidyList() {
     std::list<DisplayEntity> displayEntidyList;
 
-    //------------------------------------------------------
-    // 1.   Sun model
-    //------------------------------------------------------
-    /*DisplayEntity sunModel;
-    sunModel.name = "sun";
-    sunModel.setColor(1.0f, 0.0f, 0.0f);
-    sunModel.modelRenderingFunc = [](DisplayEntity model) { 
-        glPushMatrix();
-        glutWireSphere(2.0, 50, 40);
-        glPopMatrix();
-    };
-    displayEntidyList.push_back(sunModel);*/
-    
-    //------------------------------------------------------
-    // 3.   Venus model
-    //------------------------------------------------------
-    DisplayEntity venusModel;
-    venusModel.name = "venus";
-    venusModel.type = "collision_check";
-    venusModel.color = GLfloatColor::orangeColor();
-    venusModel.modelRenderingFunc = [](DisplayEntity model) { 
-        glPushMatrix();
-        glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
-        glutWireSphere(1, 100, 80);
-        glPopMatrix();
-    };
-    venusModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-        model->angle += 1.5f;
-        // đủ 360 độ sẽ quay về tính lại là 0
-        if (model->angle > 360)
-        {
-            model->angle = 0;
-        }
-        // 3 cho biết thế này:
-        model->translatePoint.x = 5 * sin(model->angle*3.14/180);
-        model->translatePoint.z = 5 * cos(model->angle*3.14/180);
-    };
-    //displayEntidyList.push_back(venusModel);
 
     //------------------------------------------------------
-    // 2.   Earth model
-    //------------------------------------------------------
-    //DisplayEntity earthModel;
-    //earthModel.name = "earth";
-    //earthModel.type = "collision_check";
-    //earthModel.color = GLfloatColor::greenColor();
-    //earthModel.modelRenderingFunc = [](DisplayEntity model) { 
-    //    glPushMatrix();
-    //    glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
-    //    glRotatef(model.centerAngle, 0.0, 1.0, 0.0);
-    //    glutWireSphere(0.5, 50, 10);
-    //    glPopMatrix();
-    //};
-    //earthModel.modelUpdatingFunc = [](DisplayEntity *model) { 
-    //    //quay quanh chinh no
-    //    model->centerAngle += 10.0f;
-    //    // đủ 360 độ sẽ quay về tính lại là 0
-    //    if (model->centerAngle > 360)
-    //    {
-    //        model->centerAngle = 0;
-    //        model->color = GLfloatColor::getRandomColor();
-    //    }
-    //    //
-    //    model->angle += 1.0f;
-    //    // đủ 360 độ sẽ quay về tính lại là 0
-    //    if (model->angle > 360)
-    //    {
-    //        model->angle = 0;
-    //    }
-    //    // theo trục x và z thì côgn thức học cấp
-    //    // 3 cho biết thế này:
-    //    model->translatePoint.x = 3 * sin(model->angle*3.14/180);
-    //    model->translatePoint.z = 3 * cos(model->angle*3.14/180);
-    //};
-    //displayEntidyList.push_back(earthModel);
-
-    //------------------------------------------------------
-    // 4.   Moon model
-    //------------------------------------------------------
-    //DisplayEntity moon;
-    //moon.name = "moon";
-    //moon.neighbors.push_back(&displayEntidyList.back());
-    //moon.type = "collision_check";
-    //moon.modelRenderingFunc = [](DisplayEntity model) { 
-    //    glPushMatrix();
-    //    glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
-    //    glutWireSphere(0.2, 100, 80);
-    //    glPopMatrix();
-    //};
-    //moon.modelUpdatingFunc = [](DisplayEntity *model) { 
-    //    model->angle += 30.0f;
-    //    // đủ 360 độ sẽ quay về tính lại là 0
-    //    if (model->angle > 360)
-    //    {
-    //        model->angle = 0;
-    //    }
-    //    // theo trục y và z thì côgn thức học cấp
-    //    // 3 cho biết thế này:
-    //    model->translatePoint.x = model->neighbors.back()->translatePoint.x + 1 * sin(model->angle*3.14/180);
-    //    model->translatePoint.z = model->neighbors.back()->translatePoint.z + 1 * cos(model->angle*3.14/180);
-    //};
-    //displayEntidyList.push_back(moon);
-
-    //------------------------------------------------------
-    // 5.   Line X model
+    // Line X model
     //------------------------------------------------------
     DisplayEntity lineXModel;
     lineXModel.name = "Line X";
@@ -136,7 +34,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     displayEntidyList.push_back(lineXModel);
 
     //------------------------------------------------------
-    // 6.   Line Y model
+    // Line Y model
     //------------------------------------------------------
     DisplayEntity lineYModel;
     lineYModel.name = "Line Y";
@@ -152,7 +50,7 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     displayEntidyList.push_back(lineYModel);
 
     //------------------------------------------------------
-    // 7.   Line Z model
+    // Line Z model
     //------------------------------------------------------
     DisplayEntity lineZModel;
     lineZModel.name = "Line Z";
@@ -167,12 +65,13 @@ std::list<DisplayEntity> initDisplayEntidyList() {
     };
     displayEntidyList.push_back(lineZModel);
     //------------------------------------------------------
-   // 7.   Draw Gun
-   //------------------------------------------------------
+    // Gun
+    //------------------------------------------------------
     DisplayEntity GunModel;
     GunModel.name = "Gun";
     GunModel.size = 0.4f;
-    GunModel.type = "collision_check";
+    GunModel.type.push_back(COLLISION_CHECK_TYPE);
+    GunModel.type.push_back(MAIN_TYPE);
     GunModel.angle = 90;
     GunModel.setColor(0, 0, 1);
     GunModel.setTranslatePoint(5.0f, 0.0f + GunModel.size / 2, 5.0f);
