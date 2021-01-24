@@ -5,6 +5,7 @@
 #include <string>;
 #include <math.h>;
 #include <algorithm>
+#include <sstream>
 
 #include "Dependencies/glew/glew.h";
 #include "Dependencies/freeglut/freeglut.h";
@@ -38,12 +39,14 @@ const std::string REMOVED_STATUS = "removed";
 #include "getMilliCount.h";
 #include "handleFrame.h";
 #include "GLfloatColor.h";
+#include "simpledrawtext.h"
 
 using namespace std;
 
 //Init variables
 list<DisplayEntity> displayEntidyList;
 CameraEntity cameraEntity;
+SimpleDrawText showtext;
 
 void moveGunProcess() {
     DisplayEntity* gunPtr = nullptr;
@@ -75,7 +78,11 @@ void render(void) {
     }                                                                           
   
     glMatrixMode(GL_MODELVIEW);
-
+    std::ostringstream ss;
+    ss << score;
+    std::string showscore(ss.str());
+   
+    showtext.drawText(showscore, 250, 550, 1, 1, 0);
     // Update hiển thị camera                                                   
     cameraEntity.display();                                                    
 
