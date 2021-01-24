@@ -36,15 +36,31 @@ void checkCollision(list<DisplayEntity> *entities, string type) {
                             if (containsInStringList(item->type, MAIN_TYPE)) {
                                 sub_item->status = REMOVED_STATUS;
                                 score += getScore(*sub_item);
+
+                                item->size += item->size / 50;
+                                item->color = GLfloatColor::getRandomColor();
                             }
                             else {
                                 item->status = REMOVED_STATUS;
                                 score += getScore(*item);
+
+                                sub_item->size += sub_item->size / 50;
+                                sub_item->color = GLfloatColor::getRandomColor();
                             }
                         }
                         else {
-                            item->color = GLfloatColor::getRandomColor();
-                            sub_item->color = GLfloatColor::getRandomColor();
+                            if (containsInStringList(item->type, MAIN_TYPE)) {
+                                sub_item->status = REMOVED_STATUS;
+                                score += getScore(*sub_item);
+
+                                item->size -= item->size / 10;
+                            }
+                            else {
+                                item->status = REMOVED_STATUS;
+                                score += getScore(*item);
+
+                                sub_item->size -= sub_item->size / 10;
+                            }
                         }
 
                     }

@@ -11,10 +11,14 @@
 
 float score = 0.0f;
 
+unsigned char gunKeyPressed;
+const unsigned char GUN_KEY_LEFT = '4';
+const unsigned char GUN_KEY_RIGHT ='6';
+
 const GLfloat MAX_RANGE = 20.0f;
-const GLfloat GUN_SPEED = 0.1f;
+const GLfloat GUN_SPEED = 0.2f;
 const float MINIMUM_SCORE = 1000.0f;
-const unsigned int GENERATE_TIME = 80;
+const unsigned int GENERATE_TIME = 45;
 const unsigned int START_TIME = 2000;
 const std::string COLLISION_CHECK_TYPE = "collision_check";
 const std::string FOOD_TYPE = "food";
@@ -41,7 +45,24 @@ using namespace std;
 list<DisplayEntity> displayEntidyList;
 CameraEntity cameraEntity;
 
-
+void moveGunProcess() {
+    DisplayEntity* gunPtr = nullptr;
+    for (DisplayEntity& item : displayEntidyList) {
+        if (item.name == "Gun") {
+            gunPtr = &item;
+        }
+    }
+    if (gunPtr != NULL) {
+        if (gunKeyPressed == GUN_KEY_LEFT) {
+            gunPtr->translatePoint.x -= GUN_SPEED;
+            gunPtr->translatePoint.z += GUN_SPEED;
+        }
+        else if (gunKeyPressed == GUN_KEY_RIGHT) {
+            gunPtr->translatePoint.x += GUN_SPEED;
+            gunPtr->translatePoint.z -= GUN_SPEED;
+        }
+    }
+}
 
 void render(void) {
     int beginframe = getMilliCount();
@@ -77,6 +98,8 @@ void update() {
     checkCollision(&displayEntidyList, COLLISION_CHECK_TYPE);
 
     glutPostRedisplay();
+
+    moveGunProcess();
 }
 
 void reshape(int w, int h) {
@@ -90,42 +113,27 @@ void reshape(int w, int h) {
     gluLookAt(0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
-
-GLfloat left = 0.0f;
-GLfloat right = 0.0f;
-
-void keyboardGun(unsigned char key, int x, int y, DisplayEntity* model) {
-    GLfloat speed = GUN_SPEED + left + right;
-
-    switch (key) {
-    case '6':
-        right += GUN_SPEED / 5.0f;
-        left = 0.0f;
-        model->translatePoint.x += speed;
-        model->translatePoint.z -= speed;
-        break;
-    case '4':
-        left += GUN_SPEED / 5.0f;
-        right = 0.0f;
-        model->translatePoint.x -= speed;
-        model->translatePoint.z += speed;
-        break;
+void keyDownGun(unsigned char key) {
+    if (key == GUN_KEY_LEFT || key == GUN_KEY_RIGHT) {
+        gunKeyPressed = key;
     }
 }
 
-void inputProcess(unsigned char key, int x, int y) {
-    cameraEntity.keyboardHadler(key, x, y); 
+void keyUpGun(unsigned char key) {
+    if (key == GUN_KEY_LEFT || key == GUN_KEY_RIGHT) {
+        gunKeyPressed = ' ';
+    }
+}
+
+void keyDownProcess(unsigned char key, int x, int y) {
     // Handle move camera follow keybord                                        
-    DisplayEntity* gunPtr = nullptr;
-    for (DisplayEntity& item : displayEntidyList) {
-        if (item.name == "Gun") {
-            gunPtr = &item;
-        }
-    }
-    if (gunPtr != NULL) {
-        keyboardGun(key, x, y, gunPtr);
-        /*keyboardShoot(key, x, y, gunPtr);*/
-    }
+    cameraEntity.keyboardHadler(key, x, y); 
+    // 
+    keyDownGun(key);
+}
+
+void keyUpProcess(unsigned char key, int x, int y) {
+    keyUpGun(key);
 }
 
 void mouseClickProcess(int button, int state, int x, int y) {
@@ -145,10 +153,10 @@ void init(void)
     glShadeModel(GL_FLAT);
 }
 
-void UpdateTokens(int time) {
+void timerProcess(int time) {
     DisplayEntity ball = createRandomBall();
     displayEntidyList.push_back(ball);
-    glutTimerFunc(GENERATE_TIME, UpdateTokens, 0);
+    glutTimerFunc(GENERATE_TIME, timerProcess, 0);
 }
 
 int main(int argc, char** argv)
@@ -165,10 +173,11 @@ int main(int argc, char** argv)
     init();
     glutDisplayFunc(render);
     glutReshapeFunc(reshape);
-    glutKeyboardFunc(inputProcess);
+    glutKeyboardFunc(keyDownProcess);
+    glutKeyboardUpFunc(keyUpProcess);
     glutMouseFunc(mouseClickProcess);
     glutMotionFunc(mouseMoveProcess);
-    glutTimerFunc(START_TIME, UpdateTokens, 0);
+    glutTimerFunc(START_TIME, timerProcess, 0);
     glutIdleFunc(update);
     glutMainLoop();
     return 0;
