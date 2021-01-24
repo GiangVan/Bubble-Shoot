@@ -5,7 +5,7 @@
 DisplayEntity createRandomBall() {
     float ballRange = randomFloat(1, 10);
     DisplayEntity ball;
-    if (ballRange > 5.0f) {
+    if (ballRange > 3.0f) {
         ball.type.push_back(ENEMIES_TYPE);
         ball.color = GLfloatColor::redColor();
         ball.size = randomFloat(0.1f, 0.4f);

@@ -26,7 +26,7 @@ void checkCollision(list<DisplayEntity> *entities, string type) {
                     pow(item->translatePoint.z - sub_item->translatePoint.z, 2)
                 );
 
-                range = (item->size + sub_item->size) - (item->size + sub_item->size) * 0.15;
+                range = (item->size + sub_item->size) - (item->size + sub_item->size) * 0.05f;
                 if (distance < range) {
                     if ((containsInStringList(item->type, MAIN_TYPE) || containsInStringList(sub_item->type, MAIN_TYPE))) {
                         if (
@@ -37,14 +37,14 @@ void checkCollision(list<DisplayEntity> *entities, string type) {
                                 sub_item->status = REMOVED_STATUS;
                                 score += getScore(*sub_item);
 
-                                item->size += item->size / 50;
+                                item->size += item->size / 40;
                                 item->color = GLfloatColor::getRandomColor();
                             }
                             else {
                                 item->status = REMOVED_STATUS;
                                 score += getScore(*item);
 
-                                sub_item->size += sub_item->size / 50;
+                                sub_item->size += sub_item->size / 40;
                                 sub_item->color = GLfloatColor::getRandomColor();
                             }
                         }
