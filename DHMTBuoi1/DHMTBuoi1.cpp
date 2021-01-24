@@ -15,9 +15,10 @@ float score = 0.0f;
 unsigned char gunKeyPressed;
 const unsigned char GUN_KEY_LEFT = '4';
 const unsigned char GUN_KEY_RIGHT ='6';
+const GLfloat GUN_RANGE = 10.0f;
 
 const GLfloat MAX_RANGE = 20.0f;
-const GLfloat GUN_SPEED = 0.2f;
+const GLfloat GUN_SPEED = 0.15f;
 const float MINIMUM_SCORE = 1000.0f;
 const unsigned int GENERATE_TIME = 45;
 const unsigned int START_TIME = 2000;
@@ -56,11 +57,11 @@ void moveGunProcess() {
         }
     }
     if (gunPtr != NULL) {
-        if (gunKeyPressed == GUN_KEY_LEFT) {
+        if (gunKeyPressed == GUN_KEY_LEFT && gunPtr->translatePoint.z < GUN_RANGE) {
             gunPtr->translatePoint.x -= GUN_SPEED;
             gunPtr->translatePoint.z += GUN_SPEED;
         }
-        else if (gunKeyPressed == GUN_KEY_RIGHT) {
+        else if (gunKeyPressed == GUN_KEY_RIGHT && gunPtr->translatePoint.x < GUN_RANGE) {
             gunPtr->translatePoint.x += GUN_SPEED;
             gunPtr->translatePoint.z -= GUN_SPEED;
         }
