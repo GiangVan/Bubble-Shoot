@@ -19,7 +19,7 @@ const GLfloat GUN_RANGE = 10.0f;
 
 const GLfloat MAX_RANGE = 20.0f;
 const GLfloat GUN_SPEED = 0.15f;
-const float MINIMUM_SCORE = 1000.0f;
+const float MINIMUM_SCORE = 1.0f;
 const unsigned int GENERATE_TIME = 45;
 const unsigned int START_TIME = 2000;
 const std::string COLLISION_CHECK_TYPE = "collision_check";
@@ -83,7 +83,7 @@ void render(void) {
     ss << score;
     std::string showscore(ss.str());
    
-    showtext.drawText(showscore, 250, 550, 1, 1, 0);
+    showtext.drawText("Score:"+showscore, 250, 550, 1, 1, 0);
     // Update hiển thị camera                                                   
     cameraEntity.display();                                                    
 

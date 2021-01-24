@@ -86,43 +86,81 @@ std::list<DisplayEntity> initDisplayEntidyList() {
 
         glPushMatrix();
         glTranslatef(model.translatePoint.x, model.translatePoint.y, model.translatePoint.z);
-        
-        glRotatef(model.angle,0,1,0);
+
+        glScalef(model.size, model.size, model.size);
+        glRotatef(model.angle, 1, 1, 1);
+       // glRotatef(model.angle,0,1,0);
         glBegin(GL_QUADS);
-           glVertex3f(model.size, model.size, model.size * -1); // Top Right Of The Quad (Top)
-          glVertex3f( model.size * -1, model.size, model.size * -1); // Top Left Of The Quad (Top)
-          glVertex3f( model.size * -1, model.size, model.size ); // Bottom Left Of The Quad (Top)
-          glVertex3f( model.size, model.size, model.size ); // Bottom Right Of The Quad (Top)
+        // Vẽ mặt trên 
+        glNormal3d(0, 1, 0);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 0.0f, -1.0f);
+        glVertex3f(-1.0f, 0.0f, -1.0f);
+        glVertex3f(-1.0f, 0.0f, 0.0f);
+        // Vẽ mặt trước
+        glNormal3d(0, 0, 1);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(-1.0f, 0.0f, 0.0f);
+        glVertex3f(-1.0f, -1.0, 0.0f);
+        glVertex3f(0.0f, -1.0f, 0.0f);
+        // Vẽ mặt bên phải
+        glNormal3d(1, 0, 0);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, -1.0f, 0.0f);
+        glVertex3f(0.0f, -1.0f, -1.0f);
+        glVertex3f(0.0f, 0.0f, -1.0f);
+        // Vẽ mặt bên trái 
+        glNormal3d(-1, 0, 0);
+        glVertex3f(-1.0f, 0.0f, 0.0f);
+        glVertex3f(-1.0f, 0.0f, -1.0f);
+        glVertex3f(-1.0f, -1.0f, -1.0f);
+        glVertex3f(-1.0f, -1.0f, 0.0f);
+        // Vẽ mặt dưới 
+        glNormal3d(0, -1, 0);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, -1.0f, -1.0f);
+        glVertex3f(-1.0f, -1.0f, -1.0f);
+        glVertex3f(-1.0f, -1.0f, 0.0f);
+        // Vẽ mặt sau 
+        glNormal3d(0, 0, -1);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(-1.0f, 0.0f, -1.0f);
+        glVertex3f(-1.0f, -1.0f, -1.0f);
+        glVertex3f(0.0f, -1.0f, -1.0f);
+          // glVertex3f(model.size, model.size, model.size * -1); // Top Right Of The Quad (Top)
+          //glVertex3f( model.size * -1, model.size, model.size * -1); // Top Left Of The Quad (Top)
+          //glVertex3f( model.size * -1, model.size, model.size ); // Bottom Left Of The Quad (Top)
+          //glVertex3f( model.size, model.size, model.size ); // Bottom Right Of The Quad (Top)
 		
-          glColor3f(model.color.red * 0.9f, model.color.green * 0.9f, model.color.blue * 0.9f);
-          glVertex3f( model.size, model.size * -1, model.size ); // Top Right Of The Quad
-          glVertex3f( model.size * -1, model.size * -1, model.size ); // Top Left Of The Quad
-          glVertex3f( model.size * -1, model.size * -1, model.size * -1 ); // Bottom Left Of The Quad
-          glVertex3f( model.size, model.size * -1, model.size * -1 ); // Bottom Right Of The Quad 
+          //glColor3f(model.color.red * 0.9f, model.color.green * 0.9f, model.color.blue * 0.9f);
+          //glVertex3f( model.size, model.size * -1, model.size ); // Top Right Of The Quad
+          //glVertex3f( model.size * -1, model.size * -1, model.size ); // Top Left Of The Quad
+          //glVertex3f( model.size * -1, model.size * -1, model.size * -1 ); // Bottom Left Of The Quad
+          //glVertex3f( model.size, model.size * -1, model.size * -1 ); // Bottom Right Of The Quad 
 
-          glColor3f(model.color.red * 0.75f, model.color.green * 0.75f, model.color.blue * 0.75f);
-          glVertex3f( model.size, model.size, model.size ); // Top Right Of The Quad (Front)
-          glVertex3f( model.size * -1, model.size, model.size ); // Top Left Of The Quad (Front)
-          glVertex3f( model.size * -1, model.size * -1, model.size ); // Bottom Left Of The Quad
-          glVertex3f( model.size, model.size * -1, model.size ); // Bottom Right Of The Quad 
+          //glColor3f(model.color.red * 0.75f, model.color.green * 0.75f, model.color.blue * 0.75f);
+          //glVertex3f( model.size, model.size, model.size ); // Top Right Of The Quad (Front)
+          //glVertex3f( model.size * -1, model.size, model.size ); // Top Left Of The Quad (Front)
+          //glVertex3f( model.size * -1, model.size * -1, model.size ); // Bottom Left Of The Quad
+          //glVertex3f( model.size, model.size * -1, model.size ); // Bottom Right Of The Quad 
 
-          glColor3f(model.color.red * 0.6f, model.color.green * 0.6f, model.color.blue * 0.6f);
-          glVertex3f( model.size, model.size * -1, model.size * -1 ); // Bottom Left Of The Quad
-          glVertex3f( model.size * -1, model.size * -1, model.size * -1 ); // Bottom Right Of The Quad
-          glVertex3f( model.size * -1, model.size, model.size * -1 ); // Top Right Of The Quad (Back)
-          glVertex3f( model.size, model.size, model.size * -1 ); // Top Left Of The Quad (Back)
+          //glColor3f(model.color.red * 0.6f, model.color.green * 0.6f, model.color.blue * 0.6f);
+          //glVertex3f( model.size, model.size * -1, model.size * -1 ); // Bottom Left Of The Quad
+          //glVertex3f( model.size * -1, model.size * -1, model.size * -1 ); // Bottom Right Of The Quad
+          //glVertex3f( model.size * -1, model.size, model.size * -1 ); // Top Right Of The Quad (Back)
+          //glVertex3f( model.size, model.size, model.size * -1 ); // Top Left Of The Quad (Back)
 
-          glColor3f(model.color.red * 0.45f, model.color.green * 0.45f, model.color.blue * 0.45f);
-          glVertex3f( model.size * -1, model.size, model.size ); // Top Right Of The Quad (Left)
-          glVertex3f( model.size * -1, model.size, model.size * -1 ); // Top Left Of The Quad (Left)
-          glVertex3f( model.size * -1, model.size * -1, model.size * -1 ); // Bottom Left Of The Quad
-          glVertex3f( model.size * -1, model.size * -1, model.size ); // Bottom Right Of The Quad 
+          //glColor3f(model.color.red * 0.45f, model.color.green * 0.45f, model.color.blue * 0.45f);
+          //glVertex3f( model.size * -1, model.size, model.size ); // Top Right Of The Quad (Left)
+          //glVertex3f( model.size * -1, model.size, model.size * -1 ); // Top Left Of The Quad (Left)
+          //glVertex3f( model.size * -1, model.size * -1, model.size * -1 ); // Bottom Left Of The Quad
+          //glVertex3f( model.size * -1, model.size * -1, model.size ); // Bottom Right Of The Quad 
 
-          glColor3f(model.color.red * 0.3f, model.color.green * 0.3f, model.color.blue * 0.3f);
-          glVertex3f( model.size, model.size, model.size * -1 ); // Top Right Of The Quad (Right)
-          glVertex3f( model.size, model.size, model.size ); // Top Left Of The Quad
-          glVertex3f( model.size, model.size * -1, model.size ); // Bottom Left Of The Quad
-          glVertex3f( model.size, model.size * -1, model.size * -1 ); // Bottom Right Of The Quad
+          //glColor3f(model.color.red * 0.3f, model.color.green * 0.3f, model.color.blue * 0.3f);
+          //glVertex3f( model.size, model.size, model.size * -1 ); // Top Right Of The Quad (Right)
+          //glVertex3f( model.size, model.size, model.size ); // Top Left Of The Quad
+          //glVertex3f( model.size, model.size * -1, model.size ); // Bottom Left Of The Quad
+          //glVertex3f( model.size, model.size * -1, model.size * -1 ); // Bottom Right Of The Quad
         glEnd();
         glPopMatrix(); // Quay lại trạng thái biến đổi đã lưu. 
     };
