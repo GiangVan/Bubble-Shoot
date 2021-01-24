@@ -19,7 +19,7 @@ class CameraEntity {
 //--------------------------------------------------------------------------
     CameraEntity(){ }
 
-    Point eyePoint = Point(10.0f, 10.0f, 10.0f);
+    Point eyePoint = Point(10.0f, 5.0f, 10.0f);
     Point centerPoint = Point(0.0f, 0.0f, 0.0f);
     Point upPoint = Point(0.0f, 1.0f, 0.0f);
     Point mousePoint = Point();
@@ -45,8 +45,8 @@ class CameraEntity {
         int distanceX = x - mousePoint.x;
         int distanceY = y - mousePoint.y;
 
-        centerPoint.x -= distanceX / 200.0f;
-        centerPoint.y += distanceY / 200.0f;
+        centerPoint.x -= distanceX / 100.0f;
+        centerPoint.y += distanceY / 100.0f;
 
         mousePoint.x = x;
         mousePoint.y = y;
@@ -57,7 +57,7 @@ class CameraEntity {
 
         switch (key) {
             case 'w':
-                centerPoint.y = centerPoint. y + 0.2;
+                eyePoint.y = eyePoint. y + 0.2;
                 break;
             case 's':
                 eyePoint.y = eyePoint.y - 0.2;
@@ -66,7 +66,7 @@ class CameraEntity {
                 eyePoint.x = eyePoint.x - 0.2;
                 break;
             case 'd':
-                eyePoint.z = eyePoint.z + 0.2;
+                eyePoint.x = eyePoint.x + 0.2;
                 break;
 
             default:   
